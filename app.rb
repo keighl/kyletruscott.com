@@ -21,6 +21,8 @@ get '/' do
   @posts       = @posts[0, PAGE_LIMIT]
   @title       = SITE_NAME
   @description = SITE_DESCRIPTION
+  
+  headers 'X-Hacker' => "annyeong."
 
   erb :archive
 
@@ -45,6 +47,8 @@ get %r{/page/([\d]+)} do
   @title       = "Page #{page} | #{SITE_NAME}"
   @description = SITE_DESCRIPTION
   
+  headers 'X-Hacker' => "annyeong."
+  
   erb :archive
   
 end
@@ -53,6 +57,8 @@ get '/post/:slug' do
   
   blog  = Blog.new
   @post = blog.posts.find { |post| post[:slug] == params[:slug] }
+  
+  headers 'X-Hacker' => "annyeong."
 
   if @post
     @post        = blog.prep_post(@post)
@@ -75,5 +81,6 @@ get '/feed' do
 end
 
 not_found do
+  headers 'X-Hacker' => "annyeong."
   erb :not_found
 end
