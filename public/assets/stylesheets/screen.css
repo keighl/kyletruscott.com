@@ -962,6 +962,9 @@ pre.prettyprint {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
+.post hr.last {
+  margin-top: 40px;
+}
 
 #pagination {
   margin-bottom: 20px;
@@ -1059,20 +1062,6 @@ nav ul.menu li a:hover {
 }
 nav ul.menu li:last-child {
   border-bottom: none;
-}
-
-.four_oh_four {
-  text-align: center;
-}
-.four_oh_four .radar {
-  width: 200px;
-  height: 200px;
-  background: transparent url('/assets/media/bg_not_found.png?1318884451') scroll no-repeat center center;
-  margin: 0 auto;
-}
-.four_oh_four p {
-  font-size: 2em;
-  margin-bottom: 0.5em;
 }
 
 #not_found {

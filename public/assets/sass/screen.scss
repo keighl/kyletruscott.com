@@ -371,6 +371,10 @@ pre.prettyprint {
     }
 
   }
+  
+  hr.last {
+    margin-top:40px;
+  }
 
 
 }
@@ -489,26 +493,6 @@ nav {
     }
 
   }
-
-}
-
-
-.four_oh_four {
-
-  text-align:center;
-
-  .radar {
-    width:200px;
-    height:200px;
-    background: transparent image-url("bg_not_found.png") scroll no-repeat center center;
-    margin:0 auto;
-
-  }
-
-  p {
-    font-size:2em;
-    margin-bottom:0.5em;
-  } 
 
 }
 
