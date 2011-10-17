@@ -1,0 +1,36 @@
+<section id="posts">
+  <% @posts.each do |post| %>
+    <article class="post">
+      <div class="post_date_perm">
+        <time class="date" datetime="<%= post[:date].strftime("%Y-%m-%d") %>" pubdate="pubdate">
+          <%= post[:date].strftime("%b %d, %Y") %>
+        </time>
+        <a class="permalink" href="/post/<%= post[:slug] %>" title="<%= post[:title] %>">
+          <span>a</span> Permalink
+        </a>
+      </div>
+      <div class="post_content">
+        <h2>
+          <a href="/post/<%= post[:slug] %>" title="<%= post[:title] %>">
+            <%= post[:title] %>
+          </a>
+        </h2>
+        <%= post[:content] %>
+      </div>        
+      <div class="clear"></div>
+    </article>
+  <% end %>
+  <div id="pagination">
+    <hr>
+    <% if @prev %>
+      <a href="/page/<%= @prev %>" title="Previous" class="prev">
+        New
+      </a>
+    <% end %>
+    <% if @next %>
+      <a href="/page/<%= @next %>" title="Next" class="next">
+        Old
+      </a>
+    <% end %>
+  </div>
+</section>

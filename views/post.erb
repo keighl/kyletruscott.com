@@ -1,0 +1,22 @@
+<section id="posts">
+  <article class="post">
+    <div class="post_date_perm">
+      <time class="date" datetime="<%= @post[:date].strftime("%Y-%m-%d") %>" pubdate="pubdate">
+        <%= @post[:date].strftime("%b %d, %Y") %>
+      </time>
+      <a class="permalink" href="/post/<%= @post[:slug] %>" title="<%= @post[:title] %>">
+        <span>a</span> Permalink
+      </a>
+    </div>
+    <div class="post_content">
+      <h1>
+        <a href="/post/<%= @post[:slug] %>" title="<%= @post[:title] %>">
+          <%= @post[:title] %>
+        </a>
+      </h1>
+      <%= @post[:content] %>
+    </div>        
+    <div class="clear"></div>
+  </article>
+</section>
+
