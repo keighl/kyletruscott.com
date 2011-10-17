@@ -1,12 +1,16 @@
 ---
 
-- :slug: first
-  :title: First
-  :date: 2007-01-31 12:22:26
-  :description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- :slug: "amistad-friendships-controller"
+  :title: "Rails & Amistad: Friendships Controller"
+  :date: 2011-08-17 12:22:26
+  :description: How build a simple friendships controller in Rails 3.0 using the awesome Amistad gem. 
   
-- :slug: first
-  :title: First
-  :date: 2007-01-31 12:22:26
-  :description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- :slug: "come-work-with-me"
+  :title: "Come Work With Me"
+  :date: 2011-08-11 12:00:00
+  :description: "If you live in NYC, and you're a kick-ass developer, please come work with me."
   
+- :slug: "switching-visualhtml-modes-with-tinymce"
+  :title: "Switching Visual/HTML Modes With TinyMCE"
+  :date: 2010-04-14 12:00:00
+  :description: "A simple way to turn the rich-editor on and off in your WordPress plugin, and allow users to edit the HTML."
