@@ -624,6 +624,7 @@ body {
   font-family: "ArvoRegular";
   padding-top: 7em;
   padding-bottom: 3em;
+  background-image: url('/assets/media/noise.png?1318545752');
 }
 
 strong {
@@ -763,7 +764,7 @@ h6 {
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2em;
 }
 
 h2 {
@@ -798,6 +799,7 @@ a img {
 pre,
 pre.prettyprint {
   margin-bottom: 20px;
+  font-size: 0.8em;
 }
 
 /* Layout ----------------------------- */
@@ -907,6 +909,41 @@ pre.prettyprint {
 .post .post_content a:hover img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
   opacity: 0.9;
+}
+.post .post_content img.size-auto,
+.post .post_content img.size-full,
+.post .post_content img.size-large,
+.post .post_content img.size-medium,
+.post .post_content .attachment img {
+  max-width: 100%;
+  /* When images are too wide for containing element, force them to fit. */
+  height: auto;
+  /* Override height to match resized width for correct aspect ratio. */
+}
+.post .post_content .alignleft,
+.post .post_content img.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 2em;
+}
+.post .post_content .alignright,
+.post .post_content img.alignright {
+  display: inline;
+  float: right;
+  margin-left: 2em;
+  margin-right: 0em;
+}
+.post .post_content .aligncenter,
+.post .post_content img.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post .post_content img.alignleft,
+.post .post_content img.alignright,
+.post .post_content img.aligncenter {
+  margin-bottom: 1em;
 }
 .post .meta a {
   display: inline-block;
@@ -1030,7 +1067,7 @@ nav ul.menu li:last-child {
 .four_oh_four .radar {
   width: 200px;
   height: 200px;
-  background: transparent url('/assets/media/bg_not_found.png?1318816733') scroll no-repeat center center;
+  background: transparent url('/assets/media/bg_not_found.png?1318884451') scroll no-repeat center center;
   margin: 0 auto;
 }
 .four_oh_four p {
@@ -1039,10 +1076,12 @@ nav ul.menu li:last-child {
 }
 
 #not_found {
-  background-image: url('/assets/media/bg_not_found.png?1318816733');
+  background-image: url('/assets/media/bg_not_found.png?1318884451');
   background-repeat: no-repeat;
   background-position: center top;
-  padding-top: 300px;
+  padding-top: 150px;
+  text-align: center;
+  font-size: 2em;
 }
 
 /* --------------------------------  */

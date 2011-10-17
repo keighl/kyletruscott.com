@@ -34,6 +34,7 @@ body {
   font-family:"ArvoRegular";
   padding-top: 7em;
   padding-bottom:3em;
+  background-image:image-url('noise.png');
 
 }
 
@@ -185,7 +186,7 @@ h6 {
 
 } 
 
-  h1 { font-size:2.2em; }
+  h1 { font-size:2em; }
   h2 { font-size:2em; }
   h3 { font-size:1.2em; margin-bottom:10px;}
   h4 { font-size:1em; margin-bottom:10px;}
@@ -201,6 +202,7 @@ a img {
 pre,
 pre.prettyprint {
   margin-bottom:20px;
+  font-size:0.8em;
 }
 
 /* Layout ----------------------------- */
@@ -297,6 +299,52 @@ pre.prettyprint {
         }
 
       }
+      
+  		// WP image styles
+			img.size-auto,
+			img.size-full,
+			img.size-large,
+			img.size-medium,
+			.attachment img {
+				max-width: 100%; /* When images are too wide for containing element, force them to fit. */
+				height: auto; /* Override height to match resized width for correct aspect ratio. */
+			}
+			.alignleft,
+			img.alignleft {
+				display: inline;
+				float: left;
+				margin-right: 2em;
+			}
+			.alignright,
+			img.alignright {
+				display: inline;
+				float: right;
+				margin-left: 2em;
+				margin-right:0em;
+			}
+
+			.aligncenter,
+			img.aligncenter {
+				clear: both;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			img.alignleft,
+			img.alignright,
+			img.aligncenter {
+				margin-bottom: 1em;
+			}
+
+			.wp-caption {
+				img {
+
+				}
+				p {
+
+				}
+			}
 
   }
 
@@ -468,7 +516,9 @@ nav {
   background-image:image-url('bg_not_found.png');
   background-repeat:no-repeat;
   background-position:center top;
-  padding-top:300px;
+  padding-top: 150px;
+  text-align: center;
+  font-size: 2em;
 }
 
 
