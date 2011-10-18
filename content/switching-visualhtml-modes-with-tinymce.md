@@ -49,7 +49,7 @@ $('a.toggleHTML').click(
 
 The buttons now add or remove the rich-editor respectively. You will notice that, when in <em>HTML</em> mode, the textarea resolves to a very small box. To combat this problem, simply give it some rows and cols markup, or style it with CSS.
 
-Another route in you could take  is a <strong>single button</strong> that toggles the editor on or off. I use this in my <a href="http://keighl.com/plugins/tinymce-signature/">TinyMCE Signature</a> plugin. It's not terribly different; just add some logic.
+Another route in you could take  is a <strong>single button</strong> that toggles the editor on or off. I use this in my <a href="http://wordpress.org/extend/plugins/tinymce-signature/">TinyMCE Signature</a> plugin. It's not terribly different; just add some logic.
 
 <pre class="prettyprint lang-js">
 $('a.toggleEditor').click(

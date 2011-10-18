@@ -1,0 +1,10 @@
+Redirect permanent /plugins/menus-plus http://wordpress.org/extend/plugins/menus-plus/
+Redirect permanent /plugins/learning-more http://wordpress.org/extend/plugins/learning-more/
+Redirect permanent /plugins/tinymce-signature http://wordpress.org/extend/plugins/tinymce-signature/
+Redirect permanent /plugins/before-after http://wordpress.org/extend/plugins/beforeafter/
+Redirect permanent /plugins http://profiles.wordpress.org/users/keighl/
+
+
+location ~* ^/(\d*)/(\d*)/(.*)$ {
+  rewrite ^/(\d*)/(\d*)/(.*)$ http://keighl.com/post/$3 permanent;
+}
