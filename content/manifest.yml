@@ -1,5 +1,10 @@
 ---
 
+- :slug: "introducing-buffet"
+  :title: "Introducing Buffet"
+  :date: 2011-10-18 12:00:00
+  :description: "A jQuery carousel plugin."
+
 - :slug: "amistad-friendships-controller"
   :title: "Rails & Amistad: Friendships Controller"
   :date: 2011-08-17 12:22:26

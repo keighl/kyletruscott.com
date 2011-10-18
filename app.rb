@@ -5,7 +5,7 @@ require 'sinatra'
 require 'redcarpet'
 require './blog.rb'
 
-PAGE_LIMIT       = 1
+PAGE_LIMIT       = 2
 SITE_NAME        = "Keighl"
 SITE_DESCRIPTION = "#programmer #nyc"
 
