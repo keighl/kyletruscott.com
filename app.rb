@@ -6,7 +6,7 @@ require 'redcarpet'
 require './blog.rb'
 
 PAGE_LIMIT       = 1
-SITE_NAME        = "keighl"
+SITE_NAME        = "Keighl"
 SITE_DESCRIPTION = "#programmer #nyc"
 
 get '/' do
