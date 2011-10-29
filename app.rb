@@ -53,7 +53,7 @@ get %r{/page/([\d]+)} do
   
 end
 
-get '/post/:slug' do
+get '/post/:slug/?' do
   
   blog  = Blog.new
   @post = blog.posts.find { |post| post[:slug] == params[:slug] }
