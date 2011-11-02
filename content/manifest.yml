@@ -1,5 +1,10 @@
 ---
 
+- :slug: "codeigniter-file-upload-validation"
+  :title: "Codeigniter: Validating File Uploads"
+  :date: 2011-11-01 12:00:00
+  :description: "Validate a form AND file uploads at the same time in Codeigniter by utilizing custom callbacks."
+
 - :slug: "introducing-buffet"
   :title: "Introducing Buffet"
   :date: 2011-10-18 12:00:00
@@ -9,50 +14,49 @@
   :title: "Rails & Amistad: Friendships Controller"
   :date: 2011-08-17 12:22:26
   :description: "How build a simple friendships controller in Rails 3.0 using the awesome Amistad gem."
-  
+
 - :slug: "come-work-with-me"
   :title: "Come Work With Me"
   :date: 2011-08-11 12:00:00
   :description: "If you live in NYC, and you're a kick-ass developer, please come work with me."
-  
+
 - :slug: "switching-visualhtml-modes-with-tinymce"
   :title: "Switching Visual/HTML Modes With TinyMCE"
   :date: 2010-04-14 12:00:00
   :description: "A simple way to turn the rich-editor on and off in your WordPress plugin, and allow users to edit the HTML."
-  
+
 - :slug: "nonce-and-ajax"
   :title: "Nonce and AJAX"
   :date: 2010-04-06 12:00:00
   :description: "Verify data passed through an AJAX request using the WordPress Nonce system. Not hard!"
-  
+
 - :slug: "adding-custom-link-classes-in-wordpress"
   :title: "Adding Custom Link Classes in WordPress"
   :date: "2010-03-10 12:00:00"
   :description: "Add special class to the available list under 'Insert/edit Link' button. Good for plugin and theme developers."
-  
+
 - :slug: "limiting-dates-on-two-jquery-datepickers"
   :title: "Limiting Dates on Two jQuery Datepickers"
   :date: "2010-03-03 12:00:00"
   :description: "Using two jQuery UI Datepickers, how to limit the second calendar so the end cannot come before the beginning."
-  
+
 - :slug: "using-thickbox-in-wordpress-plugins"
   :title: "Using Thickbox in WordPress Plugins"
   :date: "2010-01-27 12:00:00"
   :description: "How to use Thickbox in a WordPress plugin; covers loading Thickbox and using jQuery to make it awesome."
-  
+
 - :slug: "tinymce-in-wordpress-plugins"
   :title: "TinyMCE in WordPress Plugins"
   :date: "2010-01-04 12:00:00"
   :description: "In order to use TinyMCE from a WordPress plugin, use wp_tiny_mce(), and override the defaults."
-  
+
 - :slug: "expressionengine-filter-access-by-member-join-date"
   :title: "ExpressionEngine: Filter Access By Member Join Date"
   :date: "2009-11-24 12:00:00"
   :description: "Restrict access to data based on a member's join date with ExpressionEngine. Works for all kinds of stuff ... even calendars."
-  
+
 - :slug: "expressionengine-dynamic-calendar-using-jquery"
   :title: "ExpressionEngine: Dynamic Calendar Using jQuery"
   :date: "2009-11-24 12:00:00"
   :description: "Create a dynamic calendar using jQuery for Expression Engine with one template and the $.post() method. Let the people scoll!"
-  
-  
+
