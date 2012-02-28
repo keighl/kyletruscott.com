@@ -1,5 +1,11 @@
 ---
 
+- :slug: "leaderboard-with-mongoid-mapreduce"
+  :title: "Crankin' Out a Leaderboard With Mongoid & MapReduce"
+  :date: 2012-02-28 12:00:00
+  :description: "Use MapReduce to calculate a leaderboard in Rails / Mongoid"
+
+
 - :slug: "codeigniter-file-upload-validation"
   :title: "Codeigniter: Validating File Uploads"
   :date: 2011-11-01 12:00:00
