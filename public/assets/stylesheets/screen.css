@@ -809,6 +809,7 @@ pre.prettyprint {
   height: 1em;
   width: 100%;
   z-index: 5;
+  background-color: #30353B;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #30353b), color-stop(100%, #30353b));
   background-image: -webkit-linear-gradient(bottom, #30353b, #30353b);
   background-image: -moz-linear-gradient(bottom, #30353b, #30353b);

@@ -1,0 +1,159 @@
+[Check it out on Github.](http://github.com/keighl/booty_col)
+
+I decided to have a go at my own CSS grid framework while building a recent project at [FA](http://thinkfa.com). It's been my experience that most grid frameworks are superb for quick UI prototyping, but I always find myself hacking my way out of them to get what I really need.
+
+The interfaces for this project, in short, are complex patterned grid layouts with zero space between the boxes. Imagine a quilt of images with no visible stitching and loads of different shapes. It's a responsive site too, so the UIs need to expand and contract in a very deliberate way (we're not simply stacking stuff on mobile).
+
+My framework options, as far as I saw them at the project's outset, were some JS only solutions like [Masonry](http://masonry.desandro.com/) and [Isotope](http://isotope.metafizzy.co/), or the [Susy](http://susy.oddbird.net/) compass plugin. The JS solutions are cool, but they're not a truly responsive solution.
+
+Susy is by far my favorite grid framework because it does not take over your HTML with markup like `.span9` or `.offset3`. The problem with that approach is that the framework ultimately decides the layout and makes huges assumptions about your responsive design.
+
+Susy makes no assumption about what you want, and makes you to use its SASS mixins to build a grid. However, I was hesitant to use it because the interfaces are so tightly wound and complex. Percentage based widths don't fare well when there's no room for error (i.e. pixel perfect).
+
+So, I wrote a framework to utilize my favorite parts of Susy, and achieve more complex layouts with pixel based layouts. Here were my goals:
+
+* Fixed pixel widths
+* Setup without exicitly setting column width
+* No required markup, only SASS mixins
+* Nesting should be super easy
+* No assumptions about responsive behavior; in fact it shouldn't have responsive behaviors inherently
+* It should be able to set height based on column width
+
+I call it [Booty Col](http://github.com/keighl/boot_col). All it is a set of 5 SASS mixins that let you setup, scaffold, and nest with ease until your layout is done. We used it in the project with some great results.
+
+Here's an overview.
+
+### Setup
+
+Much like Susy, you set a few SASS variables that the framework will use to build out column styles. One difference, though, is that you don't need to state the column size. It will figure that out for you based on overall container width and gutter widths.
+
+<pre class="prettyprint lang-css">
+$booty-cols              : 12;
+$booty-width             : 960px;
+$booty-gutter-width      : 20px;
+$booty-side-gutter-width : 10px;
+
+.container {
+  @include booty-container;
+}
+</pre>
+
+### Setting Columns
+
+Very Susy like ...
+
+<pre class="prettyprint lang-css">
+.sidebar {
+  @include booty-cols(4);
+}
+</pre>
+
+### Offset
+
+Shift an element around on the grid by pushing it over by a virtual number of columns.
+
+<pre class="prettyprint lang-css">
+.thing {
+  @include booty-cols(4); // 4 columns wide
+  @include booty-push(2); // 2 columns over
+}
+</pre>
+
+### Nesting
+
+I tried to facilitate easier nesting by removing `margin-left` throughout the framework. Here's why; when you nest columns inside of columns, it important to override the margin-left of the first element, or else your grid will be off by the size of 1/2 the gutter.
+
+Most frameworks apply equal margins to both the left and right sides of a block. Booty col only applies `margin-right` so you won't hit this particular issue.
+
+[See an example!](http://keighl.github.com/booty_col)
+
+### Height
+
+The framework has a neat method that lets you assign the height of an element based on widths. We needed this feature because the design includes shape-shifting squares and rectangles whose heights adapt to screen resolution.
+
+<pre class="prettyprint lang-css">
+.sidebar {
+  @include booty-cols(4);
+  @include booty-height(4);
+}
+</pre>
+
+### Omega
+
+One concept that I directly ported from Susy is that of an `omega` mixin. By including a function that prepares a block for occupying the last column(s), you eliminate the problem that occurs when the visually "last" element changes depending on the responsive state.
+
+<pre class="prettyprint lang-css">
+.content {
+  @include booty-cols(8);
+  @include booty-omega;
+}
+</pre>
+
+### Responsive
+
+Unlike other frameworks, booty_col is not responsive out of the box. I think this is good, since it gives you granular control over how the styles adapt from screen to screen. There are a number of possible patterns you could employ to achieve a responsive layout with booty_col, but I prefer a modular mobile-first one. Here's an example:
+
+<pre class="prettyprint lang-css">
+@import "booty_col";
+
+// Mobile ----------------------------------
+
+$booty-cols              : 12;
+$booty-width             : 320px;
+$booty-gutter-width      : 0px;
+$booty-side-gutter-width : 0px;
+
+// More styles!
+
+
+// Mobile Landscape ------------------------
+
+@media (max-width: 480px) {
+
+  $booty-width : 480px;
+
+  // More styles!
+
+}
+
+// Tablet ----------------------------------
+
+@media (max-width: 768px) {
+
+  $booty-width        : 768px;
+  $booty-gutter-width : 10px;
+
+  // More styles!
+
+}
+
+// Desktop ---------------------------------
+
+@media (min-width: 768px) and (max-width: 980px) {
+
+  $booty-width             : 960px;
+  $booty-gutter-width      : 20px;
+  $booty-side-gutter-width : 10px;
+
+  // More styles!
+
+}
+
+// Big Desktop -----------------------------
+
+@media (min-width: 1200px) {
+
+  $booty-width             : 1200px;
+  $booty-gutter-width      : 20px;
+  $booty-side-gutter-width : 10px;
+
+  // More styles!
+
+}
+</pre>
+
+### Conclusions
+
+It's just another grid framework. Nothing too special, but it worked out for us on a project with a super complex grid. Enjoy!
+
+
