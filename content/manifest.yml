@@ -1,5 +1,10 @@
 ---
 
+- :slug: "did-uiscrollview-end-scrolling"
+  :title: "Did UIScrollView End Scrolling?"
+  :date: 2012-08-16 12:00:00
+  :description: "Know when a UIScrollView finished scrolling with delegate methods."
+
 - :slug: "fragment-caching-with-jbuilder"
   :title: "Fragment Caching With Jbuilder"
   :date: 2012-06-27 12:00:00
