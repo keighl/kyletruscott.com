@@ -3,7 +3,7 @@ require 'yaml'
 require 'haml'
 require 'sinatra/base'
 require 'redcarpet'
-#require './blog.rb'
+
 
 PAGE_LIMIT       = 2
 SITE_NAME        = "Keighl"
@@ -23,7 +23,7 @@ class Keighl < Sinatra::Base
     posts.each do |post|
       content        = File.read("content/#{post[:slug].to_s}.md")
       post[:content] = markdown.render(content)
-      post[:date]    = Time.parse(post[:date])
+      post[:date]    = post[:date]
     end
 
     set :posts, posts
