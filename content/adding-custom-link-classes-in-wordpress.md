@@ -6,7 +6,7 @@ Drop this in your <strong>functions.php</strong> file, or in your plugin:
 
 <pre class="prettyprint lang-php">
 &lt;?php
-	
+
 add_filter('tiny_mce_before_init', 'add_lightbox_classes');
 
 function add_lightbox_classes($initArray) {
