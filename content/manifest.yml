@@ -1,5 +1,10 @@
 ---
 
+- :slug: "fast-rails-assets-precompile-capistrano"
+  :title: "Faster Rails Asset Precompile via Capistrano"
+  :date: 2012-12-19 12:00:00
+  :description: "Speed up your deploy times A LOT by compiling your assets locally and then rsync them to your webservers."
+
 - :slug: "secure-api-request-from-ios-to-rails"
   :title: "Secure API Request From iOS to Rails"
   :date: 2012-12-19 12:00:00
