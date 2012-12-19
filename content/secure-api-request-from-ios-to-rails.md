@@ -1,4 +1,4 @@
-Here's a [gist]() for securing API transactions from an iOS application to your Rails backend. When you don't need to be a robust OAuth provider, I think this works pretty well.
+Here's a [gist](https://gist.github.com/4336694) for securing API transactions from an iOS application to your Rails backend. When you don't need to be a robust OAuth provider, I think this works pretty well.
 
 Each user does have an auth token, but they can't do anything without knowing the secret key that only the app and rails layer know.
 
