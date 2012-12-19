@@ -660,11 +660,10 @@ hr {
 
 code {
   background: #fff;
-  -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-  -o-border-radius: 2px;
+  -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  -khtml-border-radius: 2px;
+  -o-border-radius: 2px;
   border-radius: 2px;
   background-color: #FEE9CC;
   padding: 1px 3px;
@@ -675,18 +674,10 @@ a:link,
 a:visited {
   color: #00A0C6;
   text-decoration: none;
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 100ms;
-  -webkit-transition-duration: 100ms;
-  -o-transition-duration: 100ms;
-  transition-duration: 100ms;
-  -moz-transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
-  -o-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
+  -webkit-transition: "all", 100ms, "ease-in-out";
+  -moz-transition: "all", 100ms, "ease-in-out";
+  -o-transition: "all", 100ms, "ease-in-out";
+  transition: "all", 100ms, "ease-in-out";
   border-bottom: 1px #00A0C6 dotted;
 }
 a:hover,
@@ -810,17 +801,15 @@ pre.prettyprint {
   width: 100%;
   z-index: 5;
   background-color: #30353B;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #30353b), color-stop(100%, #30353b));
-  background-image: -webkit-linear-gradient(bottom, #30353b, #30353b);
-  background-image: -moz-linear-gradient(bottom, #30353b, #30353b);
-  background-image: -o-linear-gradient(bottom, #30353b, #30353b);
-  background-image: -ms-linear-gradient(bottom, #30353b, #30353b);
-  background-image: linear-gradient(bottom, #30353b, #30353b);
+  background: -webkit-gradient(linear, 100% 0%, 0% 100%, color-stop(0%, #30353b), color-stop(100%, #30353b));
+  background: -webkit-linear-gradient(top bottom, #30353b, #30353b);
+  background: -moz-linear-gradient(top bottom, #30353b, #30353b);
+  background: -o-linear-gradient(top bottom, #30353b, #30353b);
+  background: linear-gradient(top bottom, #30353b, #30353b);
   border-bottom: 1px #fff solid;
-  -moz-box-shadow: 0em 0em 0.4em rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0em 0em 0.4em rgba(0, 0, 0, 0.3);
-  -o-box-shadow: 0em 0em 0.4em rgba(0, 0, 0, 0.3);
-  box-shadow: 0em 0em 0.4em rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3), 0em, 0em, 0.4em;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3), 0em, 0em, 0.4em;
+  box-shadow: rgba(0, 0, 0, 0.3), 0em, 0em, 0.4em;
 }
 
 .fork_me {
@@ -834,9 +823,9 @@ pre.prettyprint {
 #posts {
   display: inline;
   float: left;
-  width: 80.328%;
-  margin-right: 1.639%;
-  margin-left: 1.639%;
+  width: 80.32787%;
+  margin-right: 1.63934%;
+  margin-left: 1.63934%;
   position: relative;
 }
 
@@ -849,8 +838,8 @@ pre.prettyprint {
 .post .post_date_perm {
   display: inline;
   float: left;
-  width: 18.367%;
-  margin-right: 2.041%;
+  width: 18.36735%;
+  margin-right: 2.04082%;
   min-height: 2em;
   border-right: 1px solid #d8d8d8;
   width: 95px;
@@ -881,29 +870,20 @@ pre.prettyprint {
   font-size: 1.1em;
   display: inline;
   float: left;
-  width: 75.51%;
-  margin-right: 2.041%;
+  width: 75.5102%;
+  margin-right: 2.04082%;
   margin-right: 0px;
 }
 .post .post_content img,
 .post .post_content p img {
   border: 0.3em solid #fff !important;
-  -moz-box-shadow: 0em 0em 0.2em rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0em 0em 0.2em rgba(0, 0, 0, 0.3);
-  -o-box-shadow: 0em 0em 0.2em rgba(0, 0, 0, 0.3);
-  box-shadow: 0em 0em 0.2em rgba(0, 0, 0, 0.3);
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 100ms;
-  -webkit-transition-duration: 100ms;
-  -o-transition-duration: 100ms;
-  transition-duration: 100ms;
-  -moz-transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
-  -o-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3), 0em, 0em, 0.2em;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3), 0em, 0em, 0.2em;
+  box-shadow: rgba(0, 0, 0, 0.3), 0em, 0em, 0.2em;
+  -webkit-transition: "all", 100ms, "ease-in-out";
+  -moz-transition: "all", 100ms, "ease-in-out";
+  -o-transition: "all", 100ms, "ease-in-out";
+  transition: "all", 100ms, "ease-in-out";
   margin-right: 2em;
   margin-bottom: 1em;
 }
@@ -970,9 +950,9 @@ pre.prettyprint {
 #pagination {
   margin-bottom: 20px;
   clear: both;
-  margin-left: 1.639%;
-  margin-right: 1.639%;
-  margin-left: 1.639%;
+  margin-left: 1.63934%;
+  margin-right: 1.63934%;
+  margin-left: 1.63934%;
   text-align: center;
 }
 #pagination hr {
@@ -985,11 +965,10 @@ pre.prettyprint {
   font-size: 1.5em;
   padding: 6px;
   padding-top: 10px;
-  -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  -o-border-radius: 3px;
+  -moz-border-radius: 3px;
   -ms-border-radius: 3px;
-  -khtml-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   background-color: #807e7e;
   background-repeat: no-repeat;
@@ -1023,16 +1002,16 @@ pre.prettyprint {
 nav {
   display: inline;
   float: left;
-  width: 14.754%;
-  margin-right: 1.639%;
+  width: 14.7541%;
+  margin-right: 1.63934%;
   display: inline;
   float: right;
-  margin-right: 1.639%;
+  margin-right: 1.63934%;
   #margin-left: -1em;
 }
 nav a#logo {
   font-family: 'Lobster';
-  font-weight: bold;
+  font-weight: normal;
   font-size: 3em;
   letter-spacing: -0.05em;
   border: none;

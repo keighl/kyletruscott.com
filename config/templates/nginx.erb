@@ -1,23 +1,27 @@
-# catchall to block all other domains
 server {
   listen 80;
   server_name _not_;
-  root /var/www/;
+  root /home/ubuntu/www/;
 }
 
 upstream thin {
-<% thin_servers.times do |n| %>
-  server <%= thin_address %>:<%= thin_port.to_i + n %>;
-<% end %>
+  <% thin_servers.times do |n| %>
+    server 127.0.0.1:<%= 3000 + n %>;
+  <% end %>
+}
+
+server {
+  server_name  www.keighl.com;
+  rewrite ^(.*) http://keighl.com$1 permanent;
 }
 
 server {
 
-  listen <%= nginx_port %>;
-  server_name <%= nginx_server_name %>;
-  root <%= deploy_to %>/public;
+  listen 80;
+  server_name <%= nginx_server %>;
+  root <%= current_path %>/public;
   error_page 500 502 503 504 /500.html;
-  client_max_body_size <%= nginx_client_max_body_size %>;
+  client_max_body_size 10M;
   keepalive_timeout 10;
   sendfile          on;
   gzip              on;
@@ -31,7 +35,6 @@ server {
     expires max;
     add_header Cache-Control public;
   }
-
 
   location / {
     proxy_set_header  X-Real-IP  $remote_addr;

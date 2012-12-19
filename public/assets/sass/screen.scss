@@ -216,7 +216,7 @@ pre.prettyprint {
 
   z-index:5;
   background-color:#30353B;
-  @include linear-gradient(color-stops(#30353B, #30353B), bottom);
+  @include background(linear-gradient(top bottom, #30353B, #30353B));
   border-bottom:1px #fff solid;
   @include box-shadow($shadow-color, 0em, 0em, 0.4em);
 
@@ -450,7 +450,7 @@ nav {
 
   a#logo {
     font-family:'Lobster';
-    font-weight: bold;
+    font-weight: normal;
     font-size:3em;
     letter-spacing:-0.05em;
     border:none;
