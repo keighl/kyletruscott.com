@@ -5,7 +5,7 @@
         <%= @post[:date].strftime("%b %d, %Y") %>
       </time>
       <a class="permalink" href="/post/<%= @post[:slug] %>" title="<%= @post[:title] %>">
-        <span>a</span> Permalink
+        Permalink
       </a>
     </div>
     <div class="post_content">
@@ -15,8 +15,8 @@
         </a>
       </h1>
       <%= @post[:content] %>
-      <hr class="last">  
-    </div>      
+      <hr class="last">
+    </div>
     <div class="clear"></div>
   </article>
 </section>

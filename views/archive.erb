@@ -6,7 +6,7 @@
           <%= post[:date].strftime("%b %d, %Y") %>
         </time>
         <a class="permalink" href="/post/<%= post[:slug] %>" title="<%= post[:title] %>">
-          <span>a</span> Permalink
+          Permalink
         </a>
       </div>
       <div class="post_content">
@@ -16,7 +16,7 @@
           </a>
         </h2>
         <%= post[:content] %>
-      </div>        
+      </div>
       <div class="clear"></div>
     </article>
   <% end %>
