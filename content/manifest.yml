@@ -1,5 +1,10 @@
 ---
 
+- :slug: "why-isnt-that-font-working-in-ie"
+  :title: "Why Isn't That Font Working in IE?"
+  :date: 2013-04-22 12:00:00
+  :description: "IE gets confused when @font-face fonts don't have identical family/fullnames. Fix that using FontForge."
+
 - :slug: "alternating-uitableviewcell-background-colors"
   :title: "Alternating UITableViewCell Background Colors"
   :date: 2013-01-02 12:00:00
