@@ -7,13 +7,13 @@ layout: default
       <time class="date" datetime="{{ page.date | date_to_rfc822 }}" pubdate="pubdate">
         {{ page.date | date_to_string }}
       </time>
-      <a class="permalink" href="/post/" title="">
+      <a class="permalink" href="{{ page.url }}" title="">
         Permalink
       </a>
     </div>
     <div class="post_content">
       <h1>
-        <a href="/post/" title="{{ page.title }}">
+        <a href="{{ page.url }}" title="{{ page.title }}">
           {{ page.title }}
         </a>
       </h1>
