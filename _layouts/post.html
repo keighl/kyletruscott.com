@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<section id="posts">
+  <article class="post">
+    <div class="post_date_perm">
+      <time class="date" datetime="{{ page.date | date_to_rfc822 }}" pubdate="pubdate">
+        {{ page.date | date_to_string }}
+      </time>
+      <a class="permalink" href="/post/" title="">
+        Permalink
+      </a>
+    </div>
+    <div class="post_content">
+      <h1>
+        <a href="/post/" title="{{ page.title }}">
+          {{ page.title }}
+        </a>
+      </h1>
+      {{ content }}
+      <hr class="last">
+    </div>
+    <div class="clear"></div>
+  </article>
+</section>
+

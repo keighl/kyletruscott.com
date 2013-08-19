@@ -1,0 +1,6 @@
+name: Your New Jekyll Site
+markdown: redcarpet
+pygments: true
+permalink: /post/:title
+paginate_path: /page/:num
+paginate: 2
