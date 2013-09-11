@@ -1,0 +1,307 @@
+html
+  height: 100%
+
+body
+  height: 100%
+  position: relative
+  background-color: white
+  +opensans
+  color: #494440
+  background-color: #fff
+
+  font-size: 14px
+
+  +desktop
+    font-size: 14px
+
+  // +desktop
+  //   overflow: hidden
+
+////////////////////// TYPE
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li
+  margin-top: 0px // override normalize
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-weight: normal
+  margin-bottom: 0.5em
+  +opensans-semibold
+  line-height: 1.5em
+
+h1,
+h2
+  font-size: 1.8em
+  border-bottom: 1px #eaeaea solid
+  padding-bottom: 0.5em
+
+  +desktop
+    font-size: 2.3em
+h3
+  font-size: 1.5em
+  border-bottom: 1px #eaeaea solid
+  padding-bottom: 0.5em
+
+  +desktop
+    font-size: 1.7em
+h4,
+h5,
+h6
+  font-size: 1.2em
+  margin-bottom: 1.3em
+
+p
+  font-size: 1.1em
+  line-height: 1.5em
+  margin-bottom: 1.3em
+
+a,
+a:link,
+a:visited
+  +single-transition(color, 0.05s, ease-in-out)
+  text-decoration: underline
+  outline: none
+  color: #3f97b5
+
+a:hover,
+a:active
+  color: #49b0d3
+
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a
+  text-decoration: none !important
+
+strong
+  font-weight: normal
+  +opensans-semibold
+
+em
+  font-weight: normal
+  +opensans-italic
+
+em strong,
+strong em
+  font-weight: normal
+  +opensans-semibold-italic
+
+
+ul,
+ol
+  list-style-type: disc
+  margin: 0
+  margin-left: 3em
+  font-size: 1.1em
+  line-height: 1.5em
+  margin-bottom: 1.3em
+  color: #666
+
+li
+  list-style-type: disc
+
+
+blockquote
+  margin: 0
+  margin-left: 2em
+  border-left: 3px #ccc solid
+  padding-left: 1em
+  line-height: 1.5em
+  margin-bottom: 1.3em
+  color: #666
+
+
+a.pill:link,
+a.pill:visited,
+a.pill
+  display: inline-block
+  padding: 10px
+  background-color: #444
+  text-decoration: none
+  color: white
+  +border-radius(4px)
+
+iframe
+  border: none
+  display: block
+
+
+.clear
+  clear: both
+
+.cover-container
+  +desktop
+    overflow: hidden
+
+.cover-surface
+  +desktop
+    position: absolute
+    top: 0
+    height: 100%
+    width: 100%
+    overflow: hidden
+
+.cover-content
+  padding-top: 55px
+
+  +desktop
+    padding-top: 0px
+    height: 100%
+    overflow: auto
+
+.cover
+  height: 0px
+  overflow: hidden
+  -webkit-backface-visibility: hidden
+  +single-transition(height, 300ms, cubic-bezier(0.680, -0.550, 0.265, 1.550))
+  background-color: #232323
+
+  +desktop
+    position: fixed
+    z-index: 100
+    top: 0
+    left: 0
+    width: 30%
+    height: 100%
+    max-width: 500px
+    background-position: center center
+    background-color: #3f97b5
+
+.menu-open .cover
+  height: 260px
+
+  +desktop
+    height: 100%
+
+.logo
+  display: none
+
+  +desktop
+    display: block
+    position: fixed
+    top: 20px
+    right: 20px
+    z-index: 1000
+
+a.logo-link
+  display: inline-block
+  padding: 10px
+  font-size: 2em
+  +opensans-semibold
+  text-decoration: none
+  +border-radius(6px)
+  background-color: #3f97b5
+  color: white
+
+a.logo-link:hover
+  background-color: #3e93b0
+
+////////////////////////
+
+.content-wrapper
+  position: relative
+  -webkit-backface-visibility: hidden
+  +desktop
+    outline: 0
+    position: relative
+    left: 30%
+    width: 70%
+    z-index: 1000
+    background-color: #FFF
+
+.content-wrapper-inner
+  padding: 20px
+
+  +tablet
+    padding: 50px
+
+  +desktop
+    width: 100%
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    max-width: 850px
+    padding: 60px 90px 90px 90px
+
+//////////////
+
+.cover-menu
+  // overflow: hidden
+  position: relative
+
+.cover-menu-inner
+  padding: 25px 30px
+
+.menu-open .cover-menu
+  display: block
+  +opacity(1)
+
+.cover-menu-list
+  width: 100%
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+li.cover-menu-item
+  width: 100%
+  margin: 0
+  padding: 0
+  list-style-type: none
+  border-bottom: 1px white solid
+  border-bottom: 1px rgba(255,255,255,0.2) solid
+
+a.cover-menu-link
+  text-decoration: none
+  display: block
+  color: white
+  font-size: 22px
+  padding: 12px 0
+  position: relative
+  +single-transition(all, 100ms, ease-out)
+
+a.cover-menu-link:hover
+  +transform(translate(5px,0px))
+
+
+a.cover-menu-link .icon-chevron
+  position: absolute
+  right: 0px
+  top: 15px
+  font-size: 16px
+
+///////////
+
+.post
+  border-top: 4px solid #eaeaea
+  margin-bottom: 4em
+  padding-top: 0.6em
+  overflow-x: hidden
+
+.post_date_perm
+  margin-bottom: 0.5em
+
+.date
+  +opensans-semibold-italic
+  color: #999
+
+//////
+
+.pagination
+  border-top: 4px solid #eaeaea
+  padding-top: 2em
+  text-align: center

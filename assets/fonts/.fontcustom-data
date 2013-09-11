@@ -1,0 +1,17 @@
+{
+  "fonts": [
+    "fontcustom_0b65ea94121fe945cb92abfb5da7c5e3.ttf",
+    "fontcustom_0b65ea94121fe945cb92abfb5da7c5e3.woff",
+    "fontcustom_0b65ea94121fe945cb92abfb5da7c5e3.eot",
+    "fontcustom_0b65ea94121fe945cb92abfb5da7c5e3.svg"
+  ],
+  "templates": [
+    "_fontcustom.scss"
+  ],
+  "file_name": "fontcustom_0b65ea94121fe945cb92abfb5da7c5e3",
+  "glyphs": [
+    "chevron",
+    "close",
+    "menu"
+  ]
+}

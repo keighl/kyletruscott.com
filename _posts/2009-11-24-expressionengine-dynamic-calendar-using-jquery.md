@@ -4,16 +4,18 @@ title: "ExpressionEngine: Dynamic Calendar Using jQuery"
 description: "Create a dynamic calendar using jQuery for Expression Engine with one template and the $.post() method. Let the people scoll!"
 ---
 
-<a href="http://expressionengine.com/">ExpressionEngine</a> is a great tool for managing any kind of content. A feature users depend on, regardless of whether the application is a simple blog or otherwise, is a mini-calendar. It enables them to quickly shuffle through archives or posts. Thankfully, EE has a nice built in calendar module known as <a href="http://expressionengine.com/docs/modules/weblog/calendar.html"><code>{exp:weblog:calendar}</code></a>. It's great at returning one month's worth of links, but cycling through to another month (past or previous) takes the user by default to a respective archive page. Now, the user must shift mental gears, and hunt for the info in a new way; ideally, they should be able to cycle through all the months without leaving the calendar or their current page.
+<a href="http://expressionengine.com/">ExpressionEngine</a> is a great tool for managing any kind of content. A feature users depend on, regardless of whether the application is a simple blog or otherwise, is a mini-calendar. It enables them to quickly shuffle through archives or posts. Thankfully, EE has a nice built in calendar module known as <a href="http://expressionengine.com/docs/modules/weblog/calendar.html">`{exp:weblog:calendar}`</a>. It's great at returning one month's worth of links, but cycling through to another month (past or previous) takes the user by default to a respective archive page. Now, the user must shift mental gears, and hunt for the info in a new way; ideally, they should be able to cycle through all the months without leaving the calendar or their current page.
 
-With a little help from <a href="http://jquery.com/">jQuery</a> and AJAX, it's not a difficult procedure. Essentially, we will create a separate EE template that dynamically generates a calendar, and load it in to another template passing some <code>$_POST</code> variables. When the users clicks "Next Month," the calendar is regenerated without a page refresh.
+<!--break-->
 
-### Calendar Template<
+With a little help from <a href="http://jquery.com/">jQuery</a> and AJAX, it's not a difficult procedure. Essentially, we will create a separate EE template that dynamically generates a calendar, and load it in to another template passing some `$_POST` variables. When the users clicks "Next Month," the calendar is regenerated without a page refresh.
 
-First, create a new EE template <code>lib/calendar</code>, or whatever you'd like to call it. Be sure to set the <a href="http://expressionengine.com/docs/templates/php_templates.html">PHP parsing stage to <strong>input</strong></a>. As you can see, the month, year and weblog parameters for the calendar tag are being dynamically accepted from the <code>$_POST</code> array.
+### Calendar Template
 
-<pre class="prettyprint lang-php">
-&lt;?php
+First, create a new EE template `lib/calendar`, or whatever you'd like to call it. Be sure to set the <a href="http://expressionengine.com/docs/templates/php_templates.html">PHP parsing stage to <strong>input</strong></a>. As you can see, the month, year and weblog parameters for the calendar tag are being dynamically accepted from the `$_POST` array.
+
+{% highlight php %}
+<?php
 $weblog =	 $_POST['weblog'];
 if (isset($_POST['month'])) :
 	$month = $_POST['month'];
@@ -22,58 +24,58 @@ else :
 	$month = date('m');
 	$year = date('Y');
 endif;
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
-<pre class="prettyprint lang-html">
-{exp:weblog:calendar weblog=&quot;&lt;?php echo $weblog;?&gt;;&quot; switch=&quot;calendarToday|calendarCell&quot; month=&quot;&lt;?php echo $month; ?&gt;;&quot; year=&quot;&lt;?php echo $year; ?&gt;;&quot;}
-	&lt;table class=&quot;calendar&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;;
-		&lt;tr&gt;
-			&lt;th class=&quot;calendarHeader&quot;&gt;
-				&lt;a href=&quot;&quot; alt=&quot;{previous_date format=&quot;%m&quot;}&quot; class=&quot;{previous_date format=&quot;%Y&quot;}&quot;&gt;;&amp;amp;lt;&lt;/a&gt;
-			&lt;/th&gt;
-			&lt;th class=&quot;calendarHeader&quot; colspan=&quot;5&quot;&gt;;{date format=&quot;%F %Y&quot;}&lt;/th&gt;
-			&lt;th class=&quot;calendarHeader&quot;&gt;
-			  &lt;a href=&quot;&quot; alt=&quot;{next_date format=&quot;%m&quot;}&quot; class=&quot;{next_date format=&quot;%Y&quot;}&quot;&gt;;&amp;amp;gt;&lt;/a&gt;
-			&lt;/th&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
+{% highlight html %}
+{exp:weblog:calendar weblog="<?php echo $weblog;?>;" switch="calendarToday|calendarCell" month="<?php echo $month; ?>;" year="<?php echo $year; ?>;"}
+	<table class="calendar" border="0" cellpadding="4" cellspacing="0">;
+		<tr>
+			<th class="calendarHeader">
+				<a href="" alt="{previous_date format="%m"}" class="{previous_date format="%Y"}">;&amp;amp;lt;</a>
+			</th>
+			<th class="calendarHeader" colspan="5">;{date format="%F %Y"}</th>
+			<th class="calendarHeader">
+			  <a href="" alt="{next_date format="%m"}" class="{next_date format="%Y"}">;&amp;amp;gt;</a>
+			</th>
+		</tr>
+		<tr>
 			{calendar_heading}
-			  &lt;td class=&quot;calendarDayHeading&quot;&gt;;{lang:weekday_abrev}&lt;/td&gt;
+			  <td class="calendarDayHeading">;{lang:weekday_abrev}</td>
 			{/calendar_heading}
-		&lt;/tr&gt;
+		</tr>
 		{calendar_rows }
-			{row_start}&lt;tr&gt;{/row_start}
+			{row_start}<tr>{/row_start}
 				{if entries}
 					{entries}
-						&lt;td class=&#x27;{switch} calentry&#x27; align=&#x27;center&#x27;&gt;
-							&lt;a href=&quot;{day_path=&lt;?php echo $section;?&gt;;/index}&quot;&gt;;{day_number}&lt;/a&gt;
-						&lt;/td&gt;
+						<td class='{switch} calentry' align='center'>
+							<a href="{day_path=<?php echo $section;?>;/index}">;{day_number}</a>
+						</td>
 					{/entries}
 				{/if}
 				{if not_entries}
-					&lt;td class=&#x27;{switch}&#x27; align=&#x27;center&#x27;&gt;;{day_number}&lt;/td&gt;
+					<td class='{switch}' align='center'>;{day_number}</td>
 				{/if}
 				{if blank}
-					&lt;td class=&#x27;calendarBlank&#x27;&gt;;&amp;amp;nbsp;&lt;/td&gt;
+					<td class='calendarBlank'>;&amp;amp;nbsp;</td>
 				{/if}
-			{row_end}&lt;/tr&gt;{/row_end}
+			{row_end}</tr>{/row_end}
 		{/calendar_rows}
-	&lt;/table&gt;
+	</table>
 {/exp:weblog:calendar}
-</pre>
+{% endhighlight %}
 
 ### Javascript
 
-For the user page, where the calendar is to be displayed, first load the jQuery core. Also, create an empty <code>div</code> with an <code>id</code> of "calendar" somewhere on the page.
+For the user page, where the calendar is to be displayed, first load the jQuery core. Also, create an empty `div` with an `id` of "calendar" somewhere on the page.
 
-<pre class="prettyprint lang-html">
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-latest.js&quot;&gt;&lt;/script&gt;
-</pre>
+{% highlight html %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+{% endhighlight %}
 
-Create the calendar functions using jQuery's <a href="http://docs.jquery.com/Ajax/jQuery.post"><code>$.post</code></a> method to load the calendar. We send it, via post, the data for the specific month/year we'd like to display. In parallel, jQuery is on the prowl for links embedded in the calendar; clicking on these links trigger the <code>render_calendar()</code> function again, but this time with new month/year data extracted from the prev/next links we set up in <code>lib/calendar</code>. The data is stored as <code>class</code> and <code>alt</code>; you could store them however you want, though.
+Create the calendar functions using jQuery's <a href="http://docs.jquery.com/Ajax/jQuery.post">`$.post`</a> method to load the calendar. We send it, via post, the data for the specific month/year we'd like to display. In parallel, jQuery is on the prowl for links embedded in the calendar; clicking on these links trigger the `render_calendar()` function again, but this time with new month/year data extracted from the prev/next links we set up in `lib/calendar`. The data is stored as `class` and `alt`; you could store them however you want, though.
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 $(document).ready(function(){
 
 	var weblog = "xxxxxx";
@@ -100,6 +102,6 @@ $(document).ready(function(){
 	});
 
 });
-</pre>
+{% endhighlight %}
 
 And that's it!

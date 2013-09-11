@@ -11,6 +11,8 @@ However, Thickbox is becoming a little antiquated:
 * It's no longer maintained (http://jquery.com/demo/thickbox/)
 * In the WordPress context, it uses annoying $_GET variables to pass data
 
+<!--break-->
+
 Now that the <a href="http://wordpress.org/development/2010/01/2010-open-source-design/" target="_blank">WordPress interface is being brought towards a more open source model</a>, I hope this is one of things they change. I'd like to see more integration of the <a href="http://jqueryui.com/demos/dialog/" target="_blank">jQuery UI Dialog widget</a>.
 
 Regardless, Thickbox is how it works now; so here's how to use it in a plugin.
@@ -23,8 +25,8 @@ For this example, let's imagine that it is necessary for a user to decide someth
 
 ### General Plugin Setup
 
-<pre class="prettyprint lang-php">
-&lt;?php
+{% highlight php %}
+<?php
 /*
 Plugin Name: Black or White?
 Plugin URI: http://www.keighl.com/
@@ -62,49 +64,50 @@ class BlackOrWhite {
   function choice() {}
 
 }
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
-Fairly normal. In order to use Thickbox, you need to queue both the script and style respectively. WordPress has these pre-registered for us, so all we need to do is tell it to load with <code>wp_enqueue_script()</code> and <code>wp_enqueue_style()</code> from the constructor.
+Fairly normal. In order to use Thickbox, you need to queue both the script and style respectively. WordPress has these pre-registered for us, so all we need to do is tell it to load with `wp_enqueue_script()` and `wp_enqueue_style()` from the constructor.
 
 ### Calling the Thickbox Dialog
 
-In order to actually have the modal-box pop up, it is necessary to do so through the <code>href</code> parameter of a link. This is where it gets ugly.
+In order to actually have the modal-box pop up, it is necessary to do so through the `href` parameter of a link. This is where it gets ugly.
 
-<pre class="prettyprint lang-php">
-&lt;?php function admin_view() { ?&gt;
-</pre>
+{% highlight php %}
+<?php function admin_view() { ?>
+{% endhighlight %}
 
-<pre class="prettyprint lang-html">
-&lt;div class=&quot;wrap&quot;&gt;
-  &lt;h2&gt;Black or White?&lt;/h2&gt;
-  &lt;p&gt;
-    &lt;a class=&quot;thickbox button&quot; href=&quot;/wp-admin/admin-ajax.php?action=choice&amp;width=150&amp;height=100&quot; title=&quot;Choice&quot;&gt;
+{% highlight html %}
+<div class="wrap">
+  <h2>Black or White?</h2>
+  <p>
+    <a class="thickbox button" href="/wp-admin/admin-ajax.php?action=choice&amp;width=150&amp;height=100" title="Choice">
       Choice
-    &lt;/a&gt;
-  &lt;/p&gt;
-  &lt;p&gt;
-    Your choice: &lt;span class=&quot;your-choice&quot;&gt;&lt;/span&gt;
-  &lt;/p&gt;
-&lt;/div&gt;
-</pre>
+    </a>
+  </p>
+  <p>
+    Your choice: <span class="your-choice"></span>
+  </p>
+</div>
+{% endhighlight %}
 
-<pre class="prettyprint lang-php">
-&lt;?php } ?&gt;
-</pre>
+{% highlight php %}
+<?php } ?>
+{% endhighlight %}
 
 You need to :
 
 * Declare "thickbox" as one of the link's classes ("button" is nice too)
-* Direct the link to: <code>/wp-admin/admin-ajax.php</code>
-* Give it the following <code>$_GET</code> variables
+* Direct the link to: `/wp-admin/admin-ajax.php`
+* Give it the following `$_GET` variables
   * <strong>action</strong> - tells WordPress how to handle the AJAX request, or what stuff to load into the Thickbox
   * <strong>width</strong> - the dialog's width in pixels
   * <strong>height</strong> - the dialog's height in pixels
 
 The reason for passing the AJAX request through admin-ajax.php is so we can call one of our plugin functions ... the one for the dialog box content. Back in the constructor, simply tell WordPress to which function it should redirect the AJAX request.
 
-<pre class="prettyprint lang-php">
+{% highlight php %}
+<?php
 function __construct() {
 
   add_action('admin_menu', array(&$this, 'add_admin'));
@@ -113,39 +116,39 @@ function __construct() {
   add_action('wp_ajax_choice', array(&$this, 'choice'));
 
 }
-</pre>
+{% endhighlight %}
 
 Now, when the user clicks "Choose", whatever we have stored in choice() will return within the box.
 
 ### In the Thickbox
 
-So far so good, but there is nothing in the modal-box. We need two buttons: <strong>black </strong>and <strong>white</strong>. The dialog box displays whatever is returned from <code>choice()</code>. Therefore, that's where the buttons go.
+So far so good, but there is nothing in the modal-box. We need two buttons: <strong>black </strong>and <strong>white</strong>. The dialog box displays whatever is returned from `choice()`. Therefore, that's where the buttons go.
 
-<pre class="prettyprint lang-php">
-&lt;?php function choice() { ?&gt;
-</pre>
+{% highlight php %}
+<?php function choice() { ?>
+{% endhighlight %}
 
-<pre class="prettyprint lang-html">
-&lt;p&gt;
-  &lt;a class=&quot;button choice_button&quot; id=&quot;Black&quot;&gt;Black&lt;/a&gt;
-  &lt;a class=&quot;button choice_button&quot; id=&quot;White&quot;&gt;White&lt;/a&gt;
-&lt;/p&gt;
-</pre>
+{% highlight html %}
+<p>
+  <a class="button choice_button" id="Black">Black</a>
+  <a class="button choice_button" id="White">White</a>
+</p>
+{% endhighlight %}
 
-<pre class="prettyprint lang-php">
-&lt;?php exit(); } ?&gt;
-</pre>
+{% highlight php %}
+<?php exit(); } ?>
+{% endhighlight %}
 
-Don't forget to <code>exit()</code> the function, or you'll get an annoying 0 in the Thickbox. We don't have any <code>href</code> info for these links, because we'll be handling their events via jQuery. The goal here is to only have one page, right?
+Don't forget to `exit()` the function, or you'll get an annoying 0 in the Thickbox. We don't have any `href` info for these links, because we'll be handling their events via jQuery. The goal here is to only have one page, right?
 
 ### Some jQuery
 
-<pre class="prettyprint lang-php">
-&lt;?php function admin_view() { ?&gt;
-</pre>
+{% highlight php %}
+<?php function admin_view() { ?>
+{% endhighlight %}
 
-<pre class="prettyprint lang-js">
-&lt;script type=&quot;text/javascript&quot;&gt;
+{% highlight js %}
+<script type="text/javascript">
   jQuery(document).ready(function($) {
     $('.choice_button').live('click',
       function () {
@@ -155,16 +158,16 @@ Don't forget to <code>exit()</code> the function, or you'll get an annoying 0 in
       }
     );
   });
-&lt;/script&gt;
-</pre>
+</script>
+{% endhighlight %}
 
-<pre class="prettyprint lang-php">
-&lt;?php } ?&gt;
-</pre>
+{% highlight php %}
+<?php } ?>
+{% endhighlight %}
 
-On the click event of either <code>choice_button</code>, we execute a function that returns the user's choice to the main interface.  Use the <code>live()</code> method to bind the event, because the buttons were loaded via AJAX.
+On the click event of either `choice_button`, we execute a function that returns the user's choice to the main interface.  Use the `live()` method to bind the event, because the buttons were loaded via AJAX.
 
-Removing the Thickbox is much easier than launching it ... simply call the <code>tb_remove()</code> function.
+Removing the Thickbox is much easier than launching it ... simply call the `tb_remove()` function.
 
 ### Conclusion
 

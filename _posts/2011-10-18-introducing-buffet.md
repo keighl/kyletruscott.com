@@ -10,38 +10,40 @@ I've released a jQuery plugin this week called [Buffet](http://keighl.github.com
 * [GitHub Repo](https://github.com/keighl/buffet)
 * [Download](https://github.com/keighl/buffet/zipball/master)
 
+<!--break-->
+
 Have a look at some code:
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 $('#scroll').buffet({
   scroll_by : 3,
   next      : $('#next'),
   prev      : $('#prev')
 });
-</pre>
+{% endhighlight %}
 
-<pre class="prettyprint lang-html">
-&lt;div id=&quot;scroll_mask&quot;&gt;
-  &lt;ul id=&quot;scroll&quot;&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-    &lt;li&gt;..&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-&lt;a id=&quot;prev&quot;&gt;&lt;/a&gt;
-&lt;a id=&quot;next&quot;&gt;&lt;/a&gt;
-</pre>
+{% highlight html %}
+<div id="scroll_mask">
+  <ul id="scroll">
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+    <li>..</li>
+  </ul>
+</div>
+<a id="prev"></a>
+<a id="next"></a>
+{% endhighlight %}
 
-<pre class="prettyprint lang-css">
+{% highlight css %}
 #scroll_mask {
   position:relative;
   overflow:hidden;
@@ -71,5 +73,5 @@ ul#scroll li {
 a.inactive {
   display:none;
 }
-</pre>
+{% endhighlight %}
 

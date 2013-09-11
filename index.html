@@ -4,39 +4,41 @@ title: Blog
 description: "#programmer #nyc"
 ---
 
-<section id="posts">
+<section id='posts'>
   {% for post in paginator.posts %}
-    <article class="post">
-      <div class="post_date_perm">
-        <time class="date" datetime="{{ post.date | date_to_rfc822 }}" pubdate="pubdate">
-          {{ post.date | date_to_string }}
+    <article class='post'>
+      <div class='post_date_perm'>
+        <time class='date' datetime='{{ post.date | date_to_rfc822 }}' pubdate='pubdate'>
+          {{ post.date | date: "%B %d, %Y" }}
         </time>
-        <a class="permalink" href="{{ post.url }}" title="{{ post.title }}">
-          Permalink
-        </a>
       </div>
-      <div class="post_content">
-        <h2>
-          <a href="{{ post.url }}" title="{{ post.title }}">
+      <div class='post_contet'>
+        <h1>
+          <a href='{{ post.url }}' title='{{ post.title }}'>
             {{ post.title }}
           </a>
-        </h2>
-        {{ post.content }}
+        </h1>
+        {{ post.content | split:'<!--break-->' | first }}
+        {% if post.content contains '<!--break-->' %}
+          <a class="pill" href='{{ post.url }}'>
+            Read more...
+          </a>
+        {% endif %}
       </div>
-      <div class="clear"></div>
     </article>
   {% endfor %}
-  <div id="pagination">
-    <hr>
+  <div class='pagination'>
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" title="Previous" class="prev">
-        New
-      </a>
+    <a class='prev pill' href='{{ paginator.previous_page_path }}' title='Previous'>
+      Previous
+    </a>
     {% endif %}
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" title="Next" class="next">
-        Old
-      </a>
+    <a class='next pill' href='{{ paginator.next_page_path }}' title='Next'>
+      Next
+    </a>
     {% endif %}
   </div>
 </section>
+
+

@@ -6,7 +6,7 @@ description: "Using two jQuery UI Datepickers, how to limit the second calendar 
 
 I just ran into a scenario where I had two separate jQuery UI datepickers, and needed to have the first calendar limit the date choices of the second. Essentially a start date and end date. It doesn't take a degree in relational physics to know that the end cannot come before the beginning; therefore, anything before the date the user chooses in the first calendar needs to be unavailable in the second calendar.
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 $('#start').datepicker({
 	dateFormat: "@",
 	onSelect: function(dateText, inst) {
@@ -20,4 +20,4 @@ $('#start').datepicker({
 $('#end').datepicker({
 	dateFormat: "@",
 });
-</pre>
+{% endhighlight %}

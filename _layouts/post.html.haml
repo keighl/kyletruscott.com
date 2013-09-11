@@ -1,0 +1,14 @@
+\---
+layout: default
+\---
+%section#posts
+  %article.post
+    .post_date_perm
+      %time.date{ datetime: "{{ page.date | date_to_rfc822 }}", pubdate: "pubdate" }
+        {{ page.date | date: "%B %d, %Y" }}
+    .post_contet
+      %h1
+        %a{ href: "{{ page.url }}", title: "{{ page.title }}" }
+          {{ page.title }}
+      {{ content }}
+

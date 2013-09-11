@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-7: Created.
+-->
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Sat Sep  7 16:39:16 2013
+ By Kyle Truscott
+Created by Kyle Truscott with FontForge 2.0 (http://fontforge.sf.net)
+</metadata>
+<defs>
+<font id="fontcustom" horiz-adv-x="512" >
+  <font-face 
+    font-family="fontcustom"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="512"
+    panose-1="2 0 6 9 0 0 0 0 0 0"
+    ascent="448"
+    descent="-64"
+    bbox="0 -64 512 448.007"
+    underline-thickness="25.6"
+    underline-position="-51.2"
+    unicode-range="U+F100-F102"
+  />
+    <missing-glyph />
+    <glyph glyph-name="uniF100" unicode="&#xf100;" 
+d="M1.41309 365.843l82.7539 82.1572l247.413 -252.971l-253.347 -259.029l-78.2334 79.9912l172.979 174.424z" />
+    <glyph glyph-name="uniF101" unicode="&#xf101;" 
+d="M317.387 205.057l183.903 -174.515c13.5693 -12.8682 13.5693 -33.7354 0 -46.6035l-12.2744 -11.6543c-13.5693 -12.8682 -35.543 -12.8682 -49.1123 0l-183.903 174.516l-183.903 -174.516c-13.5566 -12.8682 -35.543 -12.8682 -49.1123 0l-12.2744 11.6543
+c-13.5557 12.8682 -13.5557 33.7354 0 46.6035l183.903 174.515l-184.443 175.042c-13.5557 12.8682 -13.5557 33.7344 0 46.6025l12.2754 11.6543c13.5693 12.8682 35.5557 12.8682 49.1113 0l184.443 -175.041l184.43 175.041c13.5693 12.8682 35.5557 12.8682 49.125 0
+l12.2754 -11.6543c13.5557 -12.8682 13.5557 -33.7344 0 -46.6025z" />
+    <glyph glyph-name="uniF102" unicode="&#xf102;" 
+d="M512 448v-89.6133h-512v89.6133h512zM512 281.626v-89.6133h-512v89.6133h512zM512 114.905v-89.2539h-512v89.2539h512z" />
+  </font>
+</defs></svg>

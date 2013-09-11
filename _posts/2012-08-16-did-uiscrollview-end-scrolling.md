@@ -10,7 +10,7 @@ There is the obvious delegate, `scrollViewDidEndDecelerating`, method that annou
 
 To cover all the bases, you need to also listen to `scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate` for instances where the user stopped dragging and the `UIScrollView` also stopped without accelerating.
 
-<pre class="prettyprint lang-c">
+{% highlight objc %}
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
   if (!decelerate)
@@ -21,7 +21,7 @@ To cover all the bases, you need to also listen to `scrollViewDidEndDragging:(UI
 {
   [self postScrollExplosion:scrollView];
 }
-</pre>
+{% endhighlight %}
 
 
 If will decelerate argument is false, then we know the `UIScrollView` stopped scrolling.

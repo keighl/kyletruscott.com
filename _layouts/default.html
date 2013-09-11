@@ -1,56 +1,91 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="no-js lt-ie9 ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>        <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>     <!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
   <title>{{ page.title }} | Keighl</title>
-  <meta name="verify-v1" content="CustAsX7dzBXVYTuXsMTf6nb2NmF6w/GJN0ClwfcpJ0=" />
-  <meta name="description" content="{{ page.description }}">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link href="/assets/stylesheets/screen.css" rel="stylesheet" type="text/css">
-  <script src="/assets/js/modernizr-2.0.6.min.js"></script>
+  <meta content='width=device-width, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+  <link href='/assets/stylesheets/screen.css' rel='stylesheet' type='text/css'>
+  <meta content='{{ page.description }}' name='description'>
+  <link href='/favicon.ico' rel='shortcut icon'>
+  <!--[if lt IE 9]>
+  <link href='/assets/stylesheets/lt_ie9.css' rel='stylesheet' type='text/css'>
+  <![endif]-->
+  <script src='/assets/js/modernizr.js'></script>
 </head>
 <body>
-  <div id="main">
-    <div class="container">
-      {{ content }}
-      <nav>
-        <a href="/" id="logo">
-          keighl
-        </a>
-        <p class="description">
-          #programmer<br>
-          #nyc
-        </p>
-        <ul class="menu">
-          <li>
-            <a href="http://github.com/keighl">Github</a>
-          </li>
-          <li>
-            <a href="http://twitter.com/keighl">Twitter</a>
-          </li>
-          <li>
-            <a href="http://clambakeapp.com">Clambake</a>
-          </li>
-        </ul>
-      </nav>
+  <div class='cover-container'>
+    <div class='cover-surface'>
+      <div class='cover-content'>
+        <div class='cover'>
+          <nav class='cover-menu'>
+            <div class='cover-menu-inner'>
+              <ul class='cover-menu-list'>
+                <li class='cover-menu-item'>
+                  <a class='cover-menu-link' href='/'>
+                    Home
+                    <span class='icon-chevron'></span>
+                  </a>
+                </li>
+                <li class='cover-menu-item'>
+                  <a class='cover-menu-link' href='http://clambakeapp.com'>
+                    Clambake
+                    <span class='icon-chevron'></span>
+                  </a>
+                </li>
+                <li class='cover-menu-item'>
+                  <a class='cover-menu-link' href='https://github.com/keighl'>
+                    Github
+                    <span class='icon-chevron'></span>
+                  </a>
+                </li>
+                <li class='cover-menu-item'>
+                  <a class='cover-menu-link' href='http://twitter.com/keighl'>
+                    Twitter
+                    <span class='icon-chevron'></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="top_bar"></div>
-  <a href="http://github.com/keighl">
-    <img class="fork_me" src="/assets/media/fork_me.png" alt="Fork me on GitHub">
-  </a>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="/assets/js/jquery.js"%3E%3C/script%3E'))</script>
-  <script type="text/javascript" src="/assets/js/plugins.js"></script>
-  <script type="text/javascript" src="/assets/js/global.js"></script>
-  <script type="text/javascript">
+  <div class='content-wrapper'>
+    <div class='content-wrapper-inner'>
+      <div class='white-page'>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+  <div class='logo'>
+    <a class='logo-link' href='/'>
+      keighl
+    </a>
+  </div>
+  <div class='header'>
+    <div class='header-wrapper'>
+      <div class='header-sub-wrapper'>
+        <a class='icon-menu header-menu-icon' href=''></a>
+        <a class='header-title' href='/'>
+          <span class='text'>keighl</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+  </script>
+  <script src='/assets/js/global.js'></script>
+  <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-1411320-1']);
     _gaq.push(['_trackPageview']);
+    
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -58,4 +93,3 @@
     })();
   </script>
 </body>
-</html>

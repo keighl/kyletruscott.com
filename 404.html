@@ -1,10 +1,24 @@
 ---
 layout: default
-title: 404 | keighl
+title: 404
+description: "Sorry! Nothing to see here. "
 ---
 
 <div id="posts">
   <div id="not_found">
-    404. Off the radar.
+    <h1>404 - Not found is this.</h1>
+    <p>
+      Whatever you clicked into to isn't here / never was.
+    </p>
+    <p>May I interest you in one of my other highly engaging posts?</p>
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          <a href='{{ post.url }}' title='{{ post.title }}'>
+            {{ post.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>

@@ -12,4 +12,6 @@ I've been experimenting with a much faster way of doing this where the assets ar
 
 Also, I was able get even more speed by using the [turbo sprockets gem](https://github.com/ndbroadbent/turbo-sprockets-rails3). It keeps a manifest of what's already been compiled and only compiles new things. A big performance boost.
 
+<!--break-->
+
 <script src="https://gist.github.com/4338134.js"></script>

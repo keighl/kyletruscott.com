@@ -3,4 +3,11 @@ markdown: redcarpet
 pygments: true
 permalink: /post/:title
 paginate_path: /page/:num
-paginate: 2
+paginate: 7
+exclude:
+  - "*.rb"
+  - "*.coffee"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "*.sh"
+  - "*.haml"

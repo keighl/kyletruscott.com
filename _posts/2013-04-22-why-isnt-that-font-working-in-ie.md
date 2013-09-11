@@ -8,9 +8,13 @@ I recently emerged from a `@font-face` rabbit hole where most of the typeface we
 
 The typeface itself was proprietary and blacklisted by FontSquirrel so I had convert the fonts myself from OTF to TTF/EOT/SVG/WOFF. I found a good [reference on github](https://github.com/zoltan-dulac/css3FontConverter) for how to go about doing all the conversions; I used a mix of fontforge, ttf2eot and Batik's ttf2svg.
 
+<!--break-->
+
 After I had all the weights converted, none would work in IE8. I tried all the different `@font-face` declaration methods (like smiley face, etc). However, still no IE8 support. IE9 was working; I tracked down a console error in an IE8 emulator:
 
-`CSS3111: @font-face encountered unknown error.`
+{% highlight bash %}
+CSS3111: @font-face encountered unknown error.
+{% endhighlight %}
 
 This error was raising for each weight of the typeface. Clearly there was an issue with how I created the EOT versions of the fonts.
 

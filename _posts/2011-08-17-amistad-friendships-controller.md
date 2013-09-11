@@ -6,6 +6,8 @@ description: "How build a simple friendships controller in Rails 3.0 using the a
 
 I had to build simple friendship functionality into a Rails 3.0 app recently, and discovered this great gem, <a href="https://github.com/raw1z/amistad">Amistad</a>, that handles all the friend logic for you. Setting up a friendship system between users is a bit tricky because you need to engineer it in both directions; a friendship can only be instantiated by one user, but the both users need to see each other as friends. Ryan Bates does a really good job of explaining this in one of his RailsCasts (<a href="http://railscasts.com/episodes/163-self-referential-association">Self-Referential Associations</a>).
 
+<!--break-->
+
 ### Amistad
 
 <a href="https://github.com/raw1z/amistad">Amistad</a> is a gem that will supply you with all the logical methods for setting up friendships between users. What it doesn't do, though, is give you an interface or controller for letting users friend each other ... and that's good, because you typically want a lot of control over that anyway.
@@ -16,7 +18,7 @@ First, install the gem according to the <a href="https://github.com/raw1z/amista
 
 Next, add the Amistad bindings to your user model.
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
@@ -27,25 +29,25 @@ class User < ActiveRecord::Base
   include Amistad::FriendModel
 
 end
-</pre>
+{% endhighlight %}
 
 Then, create a controller to handle the friendships, and a resourceful route.
 
-<pre class="prettyprint lang-bash">
+{% highlight bash %}
 $ rails g controller friendships
-</pre>
+{% endhighlight %}
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 # config/routes.rb
 resources :friends, :controller => 'friendships', :except => [:show, :edit] do
   get "requests", :on => :collection
   get "invites", :on => :collection
 end
-</pre>
+{% endhighlight %}
 
 ###The Controller
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 class FriendshipsController < ApplicationController
 
   before_filter :authenticate_user!
@@ -94,7 +96,7 @@ class FriendshipsController < ApplicationController
   end
 
 end
-</pre>
+{% endhighlight %}
 
 So, this is a semi-restful approach to invited, confirming, and removing friendships between users. You'll notice that I removed the "show" and "edit" actions because they don't fit the functionality we're trying to accomplish. Instead of "showing" a friendship, we would want to just show that user's profile. And there aren't enough configurable qualities to warrant an "edit" interface.
 
@@ -108,7 +110,7 @@ This method just returns all of the current user's friends; thanks to Amistad, w
 
 In the new action, I simply listed out all users that the current user <strong>could</strong> invite as friends. Here's how I render out the potential friends in the view. I eventually made this one more robust to totally filter out current friends, and to search by email/name/etc. But here's the simple version.
 
-<pre class="prettyprint">
+{% highlight haml %}
 %ul
   - for user in @friends
     %li
@@ -128,7 +130,7 @@ In the new action, I simply listed out all users that the current user <strong>c
         = user.email
         |
         = link_to "Add friend?", friends_path(:user_id => user), :method => "post"
-</pre>
+{% endhighlight %}
 
 ### create
 
@@ -142,21 +144,21 @@ I'm using the update method only to confirm an invitation that another user sent
 
 The request action spits out all pending invitations from other users. You have the user confirm the friendship with a PUT request to the update method.
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 link_to "Confirm friend?", friend_path(user), :method => "put"
-</pre>
+{% endhighlight %}
 
 ### invites
 
 This would be pending invitations that the current user sent out to other users. In my view, I let the current user cancel the request by linking to the destroy method.
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 = link_to "Cancel invite?", friend_path(user), :method => "delete"
-</pre>
+{% endhighlight %}
 
 ### destroy
 
-The destroy method can be used to remove a friend (regardless of how the friendship was created), or to cancel a a pending invite with the current_user.remove_friendship method.
+The destroy method can be used to remove a friend (regardless of how the friendship was created), or to cancel a a pending invite with the `current_user.remove_friendship` method.
 
 
 

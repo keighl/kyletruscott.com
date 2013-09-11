@@ -12,6 +12,8 @@ I've always found it rather difficult to mash together functionalities in Codeig
 
 For me, the ideal situation is to validate everything at once. I've been doing this with [custom validation callbacks](http://codeigniter.com/user_guide/libraries/form_validation.html#callbacks) that handle the upload processing and return any upload errors directly to the form validation class.
 
+<!--break-->
+
 What's nice about this is that you do the entire form processing at the same time, and still have a lot of flexibility in how you process the uploads. For instance, if we had multiple uploads, we can register callbacks for each one to tailer the functionality.
 
 Here's an outline of the process:
@@ -27,7 +29,8 @@ You'll see I also posthumously set a `$_POST` value to the uploaded element's fi
 
 Do enjoy.
 
-<pre class="prettyprint lang-php">
+{% highlight php %}
+<?php
 class Publish extends CI_Controller {
 
   function __construct()
@@ -85,4 +88,4 @@ class Publish extends CI_Controller {
   }
 
 }
-</pre>
+{% endhighlight %}

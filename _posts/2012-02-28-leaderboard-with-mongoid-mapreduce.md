@@ -6,6 +6,8 @@ description: Use MapReduce to calculate a leaderboard in Rails / Mongoid
 
 I'm working on a cool side project; it's a game built on Rails. I decided to use MongoDB/Mongoid as the storage engine because of the potential volume of "moves," but more specifically to easily denormalize the scoring mechanisms throughout the application. Instead of performing some massive MySQL calculations for aggregating points, I simply  `{$inc : {'points' : 1}}`. This makes it super easy to sort moves by how many points they have.
 
+<!--break-->
+
 However, when it came time to make a leaderboard, I found myself missing MySQL quite a bit. In MongoDB, there's not such thing as subquerying, counting, summing, and grouping all at once.
 
 But, that's kind of the point of MongoDB or any NoSQL solution. It took a few hours, but I ultimately achieved what I wanted using MongoDB's built in MapReduce functions.
@@ -22,25 +24,25 @@ The leaderboard should show **all the players in the game**, the **total points 
 
 --------------
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 class Game
   include Mongoid::Document
 
   has_and_belongs_to_many :players, :class_name => "User", :inverse_of => :games, :autosave => true
   has_many :moves
 end
-</pre>
+{% endhighlight %}
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 class User
   include Mongoid::Document
 
   has_and_belongs_to_many  :games
   has_many                 :moves
 end
-</pre>
+{% endhighlight %}
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 class Move
   include Mongoid::Document
 
@@ -49,7 +51,7 @@ class Move
 
   field :points, :type => Integer, :default => 0
 end
-</pre>
+{% endhighlight %}
 
 --------------
 
@@ -57,7 +59,7 @@ end
 
 The main goal is to get an array of Ruby hashes that each contain: a player, their total score, their total moves. I want to defer as much "calculating" to MapReduce as possible; so it meant doing to the totalling of points and moves there.
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 # game.rb
 
 def generate_game_stats
@@ -79,15 +81,15 @@ def generate_game_stats
   "
   db.collection('moves').map_reduce(map, reduce, {:out => "game_stats_#{self.id}", :query => {:game_id => self.id}})
 end
-</pre>
+{% endhighlight %}
 
 ### Map
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 function () {
   emit(this.user_id, {'points' : this.points, 'moves' : 1});
 }
-</pre>
+{% endhighlight %}
 
 The `map` method is what we use to extract all the relevant information from the database. It's a JS method that fires once for every document (i.e. record) that matches the query. In this case we're looking at moves (`db.collection('moves')`) that belong to the current game (`:query => {:game_id => self.id}`).
 
@@ -97,7 +99,7 @@ At the end of `map` we have a lot of litte documents like `{points : 5, moves : 
 
 ### Reduce
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 function (key, emits) {
   var total = {'points' : 0, 'moves' : 0};
   for (var i in emits) {
@@ -106,7 +108,7 @@ function (key, emits) {
   }
   return total;
 }
-</pre>
+{% endhighlight %}
 
 Here in `reduce`, we actually perform our calculations. It means taking all the little `{points : 5, moves : 1}` documents and adding them up to give us totals by user (which is how we grouped them in `map`).
 
@@ -123,15 +125,15 @@ The returned object will look something like `{points : 65, moves : 12}`. So, we
 
 ### Output
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 db.collection('moves').map_reduce(map, reduce, {:out => "game_stats_#{self.id}", :query => {:game_id => self.id}})
-</pre>
+{% endhighlight %}
 
 Finally, after mongo is done reducing all of our emits, we save the result to a collection. It's like creating a new table specifically to hold some calculations. In SQL, this would be frowned upon, but here in NoSQL land ... totally acceptable!
 
 We'll save our output to a collection named with the game's id: `:out => "game_stats_#{self.id}"`. The collection will look like this:
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 [
   {
     "_id"   : ObjectId("4f4a7242ec63458c78000001"),
@@ -155,13 +157,13 @@ We'll save our output to a collection named with the game's id: `:out => "game_s
     }
   }
 ]
-</pre>
+{% endhighlight %}
 
 ### Constructing the Leaderboard
 
 So, we have our map-reduced collection of users with points and moves. Unlike an SQL aggregation, this collection isn't exactly ready for frontend implementation. So in order to fullfill the ultimate purpose, I used decorator-esque method to format the collection into something more useful.
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 # game.rb
 
 def game_stats
@@ -190,7 +192,7 @@ def leaderboard(order = :points)
   end
   return final.sort_by { |u| -u[order] }
 end
-</pre>
+{% endhighlight %}
 
 By calling `leaderboard`, it first formats the stats collection into a hash keyed by user id in `game_stats`. It then mashes the stats hash and the actual list of players from `self.players`. This makes sure that we pickup any players who haven't made a move yet (since the map-reduce only maps moves, not players). Finally, order the leaderboard by points. Now it's ready for front-end consumption.
 
@@ -205,14 +207,14 @@ There's a bit of Ruby parsing and shuffling that has to occur here to translate 
 
 For example:
 
-<pre class="prettyprint lang-ruby">
+{% highlight ruby %}
 # move.rb
 
 after_create do |move|
   move.game.generate_game_stats
   return
 end
-</pre>
+{% endhighlight %}
 
 I hope this helps somebody utilize the more advanced features of MongoDB/Mongoid. For more detailed look at MapReduce, see the docs: [http://www.mongodb.org/display/DOCS/MapReduce](http://www.mongodb.org/display/DOCS/MapReduce)
 

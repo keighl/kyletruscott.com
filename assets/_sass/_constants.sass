@@ -1,0 +1,149 @@
+$lt_ie9: false !default
+
+
+// SUSY grid defaults
+$total-columns : 12
+$gutter-width  : 1em
+$grid-padding  : $gutter-width
+
+
+// Media query mixins
+@mixin landscape
+  @media (min-width: 480px) and (max-width: 767px) and (orientation:landscape)
+    @content
+
+
+@mixin tablet
+  +at-breakpoint(36em 12 60em)
+    @content
+
+
+@mixin desktop
+  $container-width: 75em
+  +with-grid-settings(12,4em,2em,2em)
+    @if $lt_ie9
+      @content
+
+    @else
+      +at-breakpoint(60em 12)
+        @content
+
+
+@mixin tablet-desktop
+  +tablet
+    @content
+
+  +desktop
+    @content
+
+
+@mixin retina
+  @media  (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 2)
+    @content
+
+
+// FA inline-block
+@mixin fa-inline-block
+  display: inline-block
+  position: relative
+  vertical-align: middle
+
+  .lt-ie8 &
+    display: inline
+    vertical-align: top
+    zoom: 1
+
+
+@mixin animate($prop, $time:"", $delay:"", $ease: "")
+  @if $time == ""
+    $time: 0.4s
+
+  @if $delay == ""
+    $delay: 0s
+
+  @if $ease == ""
+    $ease: cubic-bezier(0.475, 0.465, 0.120, 1.005)
+
+  +transition-property($prop)
+  +transition-duration($time)
+  +transition-timing-function($ease)
+  +transition-delay($delay)
+
+
+@mixin keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+
++keyframes(spin)
+  0%
+    +rotate(0deg)
+  100%
+    +rotate(360deg)
+
+
+// Absolutely centered
+@mixin absolutely-centered
+  left: 0
+  right: 0
+  margin: 0 auto
+  position: absolute
+
+// Responsive spacing helpers
+$mobile_vertical_spacing  : 30px
+$tablet_vertical_spacing  : 40px
+$desktop_vertical_spacing : 60px
+
+@mixin vertical-padding($multiple: 1)
+  padding: $mobile_vertical_spacing * $multiple 0
+
+  +tablet
+    padding: $tablet_vertical_spacing * $multiple 0
+
+  +desktop
+    padding: $desktop_vertical_spacing * $multiple 0
+
+
+@mixin margin-top($multiple: 1)
+  margin-top: $mobile_vertical_spacing * $multiple
+
+  +tablet
+    margin-top: $tablet_vertical_spacing * $multiple
+
+  +desktop
+    margin-top: $desktop_vertical_spacing * $multiple
+
+
+@mixin margin-bottom($multiple: 1)
+  margin-bottom: $mobile_vertical_spacing * $multiple
+
+  +tablet
+    margin-bottom: $tablet_vertical_spacing * $multiple
+
+  +desktop
+    margin-bottom: $desktop_vertical_spacing * $multiple
+
+
+@mixin padding-bottom($multiple: 1)
+  padding-bottom: $mobile_vertical_spacing * $multiple
+
+  +tablet
+    padding-bottom: $tablet_vertical_spacing * $multiple
+
+  +desktop
+    padding-bottom: $desktop_vertical_spacing * $multiple
+
+
+@mixin padding-top($multiple: 1)
+  padding-top: $mobile_vertical_spacing * $multiple
+
+  +tablet
+    padding-top: $tablet_vertical_spacing * $multiple
+
+  +desktop
+    padding-top: $desktop_vertical_spacing * $multiple
+

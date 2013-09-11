@@ -4,46 +4,50 @@ title: "TinyMCE in WordPress Plugins"
 description: "In order to use TinyMCE from a WordPress plugin, use wp_tiny_mce(), and override the defaults."
 ---
 
-Unlike some of the other JavaScript assets available to plugin developers through <a href="http://codex.wordpress.org/Function_Reference/wp_enqueue_script"><code>wp_enqueue_script()</code></a>, getting <a href="http://tinymce.moxiecode.com/">TinyMCE</a> to function in your plugin is a little different. You would perhaps expect to use it like this:
+Unlike some of the other JavaScript assets available to plugin developers through <a href="http://codex.wordpress.org/Function_Reference/wp_enqueue_script">`wp_enqueue_script()`</a>, getting <a href="http://tinymce.moxiecode.com/">TinyMCE</a> to function in your plugin is a little different. You would perhaps expect to use it like this:
 
-<pre class="prettyprint lang-php">
-&lt;?php
+<!--break-->
+
+{% highlight php %}
+<?php
 add_action("admin_print_scripts", "js_libs");
 function js_libs() {
 	wp_enqueue_script('tiny_mce');
 }
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
-<pre class="prettyprint lang-js">
+{% highlight js %}
 tinyMCE.init({
 	mode : "exact",
 	elements: "a_nice_textarea",
 	theme : "simple"
 });
-</pre>
+{% endhighlight %}
 
-<pre class="prettyprint lang-html">
-&lt;textarea id=&quot;a_nice_textarea&quot; name=&quot;a_nice_textarea&quot;&gt;&lt;/textarea&gt;
-</pre>
+{% highlight html %}
+<textarea id="a_nice_textarea" name="a_nice_textarea"></textarea>
+{% endhighlight %}
 
-However, enqueuing the TinyMCE really won't get you any results. You need to use the <code>wp_tiny_mce()</code> function, which is not well documented. Essentially, the function pre-constructs the TinyMCE for you, and you override its default options. The main option to override is <code>editor_selector</code> which points TinyMCE at a specific textarea <code><strong>class</strong></code>.
+However, enqueuing the TinyMCE really won't get you any results. You need to use the `wp_tiny_mce()` function, which is not well documented. Essentially, the function pre-constructs the TinyMCE for you, and you override its default options. The main option to override is `editor_selector` which points TinyMCE at a specific textarea class.
 
-<pre class="prettyprint lang-php">
+{% highlight php %}
+<?php
 wp_tiny_mce( false , // true makes the editor "teeny"
 	array(
 		"editor_selector" => "a_nice_textarea"
 	)
 );
-</pre>
+{% endhighlight %}
 
-<pre class="prettyprint lang-html">
-&lt;textarea class=&quot;a_nice_textarea&quot; id=&quot;a_nice_textarea&quot; name=&quot;a_nice_textarea&quot;&gt;&lt;/textarea&gt;
-</pre>
+{% highlight html %}
+<textarea class="a_nice_textarea" id="a_nice_textarea" name="a_nice_textarea"></textarea>
+{% endhighlight %}
 
 You can stick this anywhere you want, and it will work (for the most part). All the available configuration options for TinyMCE can be determined by referencing it within the array. WordPress has a bunch of them determined by default for the post content editor; most of them are fine as is.
 
-<pre class="prettyprint lang-php">
+{% highlight php %}
+<?php
 // TinyMCE init settings
 $initArray = array (
 	'mode'                              => 'none',
@@ -80,8 +84,8 @@ $initArray = array (
 	'wpeditimage_disable_captions'      => $no_captions,
 	'plugins'                           => "$plugins"
 );
-</pre>
+{% endhighlight %}
 
-For a closer look at <code>wp_tiny_mce()</code>, <a href="http://core.trac.wordpress.org/browser/trunk/wp-admin/includes/post.php">check out the source</a>.
+For a closer look at `wp_tiny_mce()`, <a href="http://core.trac.wordpress.org/browser/trunk/wp-admin/includes/post.php">check out the source</a>.
 
 For incorporating the <em>Visual</em>/<em>HTML</em> mode switcher, and turning TinyMCE on and off, see <a href="/post/switching-visualhtml-modes-with-tinymce/">Switching Visual/HTML Modes With TinyMCE</a>.

@@ -1,0 +1,78 @@
+!!! 5
+<!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="no-js lt-ie9 ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>        <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>     <!--> <html class="no-js" lang="en"> <!--<![endif]-->
+%head
+  %title {{ page.title }} | Keighl
+  %meta{ content: "width=device-width, minimum-scale=1.0, maximum-scale=1.0", name: "viewport" }
+  %link{ href: "/assets/stylesheets/screen.css", rel: "stylesheet", type: "text/css"}
+  %meta{ name: "description", content: "{{ page.description }}" }
+  %link{ rel: "shortcut icon", href: "/favicon.ico" }
+
+  <!--[if lt IE 9]>
+  %link{ href: "/assets/stylesheets/lt_ie9.css", rel: "stylesheet", type: "text/css"}
+  <![endif]-->
+
+  %script{ src: "/assets/js/modernizr.js" }
+%body
+  .cover-container
+    .cover-surface
+      .cover-content
+        .cover
+          %nav.cover-menu
+            .cover-menu-inner
+              %ul.cover-menu-list
+                %li.cover-menu-item
+                  %a.cover-menu-link{ href: "/" }
+                    Home
+                    %span.icon-chevron
+                %li.cover-menu-item
+                  %a.cover-menu-link{ href: "http://clambakeapp.com" }
+                    Clambake
+                    %span.icon-chevron
+                %li.cover-menu-item
+                  %a.cover-menu-link{ href: "https://github.com/keighl" }
+                    Github
+                    %span.icon-chevron
+                %li.cover-menu-item
+                  %a.cover-menu-link{ href: "http://twitter.com/keighl" }
+                    Twitter
+                    %span.icon-chevron
+
+  .content-wrapper
+    .content-wrapper-inner
+      .white-page
+        {{ content }}
+
+  .logo
+    %a.logo-link{ href: "/" }
+      keighl
+
+  .header
+    .header-wrapper
+      .header-sub-wrapper
+        %a.icon-menu.header-menu-icon{ href: "#{}"}
+        %a.header-title{ href: "/" }
+          %span.text keighl
+
+
+  %script{ src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" }
+
+  :javascript
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+
+  %script{ src: "/assets/js/global.js" }
+
+  :javascript
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1411320-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+

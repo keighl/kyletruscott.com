@@ -11,6 +11,8 @@ The implementation looked like this:
 * Standard table view and reusable cell structure.
 * SDWebImage for downloading and locally caching images from our servers.
 
+<!--break-->
+
 I was using the `setImageWithURL:placeholderImage:options:` category method on `UIImageView` to set the cell's image. This was fine when there was not too many images since they would load in farily quickly.
 
 However, since the cells were being reused, these download operations were sometimes carried over to the next reused cell if the image hadn't finished downloading.
