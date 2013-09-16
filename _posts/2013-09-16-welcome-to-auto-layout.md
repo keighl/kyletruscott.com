@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Welcome to iOS Auto Layout"
-description: "In one of our earlier Clambake iOS releases, I noticed a peculiar issue with our 'moves' interface. Scrolling really quickly down the table would result in the lower images 'flashing' through what looked to be the cell images that came before it. "
+description: "Here is a handful of insights, tips and grievances regarding my first month with Auto Layout. Their validity is questionable since I am so new to it, but here they are nonetheless."
 published: true
 ---
 
