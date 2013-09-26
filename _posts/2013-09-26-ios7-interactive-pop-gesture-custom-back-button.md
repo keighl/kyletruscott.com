@@ -45,7 +45,7 @@ After a few hours of wrestling with various solves, I found that I can mitigate 
 
 Like [Stuart Hall](http://stuartkhall.com/posts/ios-7-development-tips-tricks-hacks) talks about in his post, assiging a delegate to the gesture resurrects it's behavior when a custom back button is applied. However, with really fast user pop interactions, the controller is sent a message from the gesture after it's been deallocated.
 
-My solution is to simply make the navigation controller itself be the gesture delegate. Again, this technique works best with a `UINavigationController` subclass.
+My solution is to simply make the navigation controller itself be the gesture delegate. This technique works best with a `UINavigationController` subclass.
 
 {% highlight objc %}
 @interface CBNavigationController : UINavigationController <UIGestureRecognizerDelegate>
