@@ -4,7 +4,7 @@ title: "Speed up RSpec. Ditch bcrypt."
 description: "In your test suite, don't use bcrypt to hash passwords. Way to slow! Use something like md5 in your tests for a runtime boost."
 ---
 
-At [Clambake](http://clambakeap.com), we have an RSpec test suite of about 650 cases. The runtime for the whole suite has grown to about 4 minutes. The sheer amount of time spent waiting for them to finish was discouraging me from writing new tests.
+At [Clambake](http://clambakeapp.com), we have an RSpec test suite of about 650 cases. The runtime for the whole suite has grown to about 4 minutes. The sheer amount of time spent waiting for them to finish was discouraging me from writing new tests.
 
 I did some googling around, and discovered a fairly obvious reason why the tests are so slow: [bcrypt](http://en.wikipedia.org/wiki/Bcrypt)
 
