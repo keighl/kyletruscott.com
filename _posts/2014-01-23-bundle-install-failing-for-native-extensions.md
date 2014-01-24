@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bundle install failing on native extensions.. but gem install working?"
+title: "Bundle install failing on native extensions.. but gem install works?"
 description: "If you have bundler failing for no apparent reason... Make sure you have enough resources on the machine. Specifically shut down memory intensive processes like in memory stores."
 ---
 
