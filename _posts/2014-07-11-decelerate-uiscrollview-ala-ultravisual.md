@@ -6,7 +6,7 @@ description: ""
 
 For a recent prototyping project, I was reverse engineering the awesome scrolling interaction of [UltraVisual](http://ultravisual.com). There are many aspects that make up the responsiveness to their interaction: the cell sizes interpolate their heights as they approach being the ‘featured’ item, the tiled images parallax slightly on scroll, etcetera.
 
-A key aspect, though, is how the scrollview decelerates naturally into another cell position. It does not simply animate to a position after the scroll view stops decelerating  (for an example of that behavior, check out this other clone I found). I think it’s this nuance that ties everything together.
+A key aspect, though, is how the scrollview decelerates naturally into another cell position. It does not simply animate to a position after the scroll view stops decelerating  (for an example of that behavior, [check out this other clone I found](https://github.com/RobotsAndPencils/RPSlidingMenu)). I think it’s this nuance that ties everything together.
 
 The technique I landed upon was to implement the `scrollViewWillEndDragging:withVelocity:targetContentOffset` delegate method, and change the `targetContentOffset` to be the position of the appropriate next cell.
 
