@@ -6,7 +6,7 @@ body
   position: relative
   background-color: white
   +opensans
-  color: #494440
+  color: #22313F
   background-color: #fff
 
   font-size: 14px
@@ -73,11 +73,11 @@ a:visited
   +single-transition(color, 0.05s, ease-in-out)
   text-decoration: underline
   outline: none
-  color: #3f97b5
+  color: $link-color
 
 a:hover,
 a:active
-  color: #49b0d3
+  color: $link-hover-color
 
 
 h1 a,
@@ -185,7 +185,7 @@ hr
     height: 100%
     max-width: 500px
     background-position: center center
-    background-color: #3f97b5
+    background-color: $bg-color
 
 .menu-open .cover
   height: 260px
@@ -193,28 +193,27 @@ hr
   +desktop
     height: 100%
 
-.logo
+.cover-logo
   display: none
+  width: 100%
+  z-index: 200
 
   +desktop
     display: block
-    position: fixed
-    top: 20px
-    right: 20px
-    z-index: 1000
 
-a.logo-link
-  display: inline-block
-  padding: 10px
-  font-size: 2em
-  +opensans-semibold
-  text-decoration: none
-  +border-radius(6px)
-  background-color: #3f97b5
+.cover-logo-inner
+  padding: 25px 30px
+
+a.cover-logo-link
   color: white
+  font-size: 3em
+  text-decoration: none
+  display: block
+  width: 100%
+  padding-bottom: 1rem
+  border-bottom: 2px white solid
+  border-bottom: 2px rgba(255,255,255,0.2) solid
 
-a.logo-link:hover
-  background-color: #3e93b0
 
 ////////////////////////
 
@@ -251,6 +250,9 @@ a.logo-link:hover
 
 .cover-menu-inner
   padding: 25px 30px
+
+  +desktop
+    padding-top: 0
 
 .menu-open .cover-menu
   display: block
@@ -314,3 +316,5 @@ a.cover-menu-link .icon-chevron
   border-top: 4px solid #eaeaea
   padding-top: 2em
   text-align: center
+
+

@@ -21,34 +21,37 @@
     .cover-surface
       .cover-content
         .cover
+          .cover-logo
+            .cover-logo-inner
+              %a.cover-logo-link{ href: "/" }
+                %strong keighl
           %nav.cover-menu
             .cover-menu-inner
               %ul.cover-menu-list
                 %li.cover-menu-item
                   %a.cover-menu-link{ href: "/" }
-                    Home
+                    home
                     %span.icon-chevron
                 %li.cover-menu-item
                   %a.cover-menu-link{ href: "http://clambakeapp.com" }
-                    Clambake
+                    clambake
                     %span.icon-chevron
                 %li.cover-menu-item
                   %a.cover-menu-link{ href: "https://github.com/keighl" }
-                    Github
+                    github
                     %span.icon-chevron
                 %li.cover-menu-item
                   %a.cover-menu-link{ href: "http://twitter.com/keighl" }
-                    Twitter
+                    twitter
                     %span.icon-chevron
+
 
   .content-wrapper
     .content-wrapper-inner
       .white-page
         {{ content }}
 
-  .logo
-    %a.logo-link{ href: "/" }
-      keighl
+
 
   .header
     .header-wrapper
