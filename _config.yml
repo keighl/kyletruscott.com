@@ -1,6 +1,6 @@
 name: Keighl
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 permalink: /post/:title
 paginate_path: /page/:num
 paginate: 7
