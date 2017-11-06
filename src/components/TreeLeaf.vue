@@ -141,7 +141,7 @@ export default {
 .tree-view-leaf-toggle
   display: none
   width: 100%
-  height: 1.5em
+  height: 1.25em
   justify-content: center
   align-items: center
   cursor: pointer
