@@ -1,109 +1,66 @@
-import moment from 'moment'
-
 export default {
   id: 'keighl',
   name: {
     first_name: 'Kyle',
     last_name: 'Truscott'
   },
-  desc: 'Polyglot software engineer and UX designer',
-  location: 'CT, USA',
-  available_for_hire: true,
+  desc: 'Freelance developer + UX designer available for unique software projects',
+  contact: 'me@keighl.com',
   github: 'https://github.com/keighl',
-  competency: [
-    'ux-design',
-    'vuejs',
-    'golang',
-    'ruby',
-    'ios',
-    'dev-ops',
-    '...and more!'
+  location: [
+    41.142458,
+    -73.233067
   ],
-  career: [
+  specialties: {
+    ux: [
+      'design',
+      'development',
+      'research'
+    ],
+    'api': [
+      'design',
+      'implementation',
+      'client-wrappers'
+    ],
+    'prototyping': [
+      'user experiences',
+      'backend systems'
+    ]
+  },
+  technology: [
+    'golang',
+    'vuejs',
+    'react',
+    'ruby',
+    'graphql',
+    'nodejs',
+    'ios',
+    'kubernetes'
+  ],
+  recent_work: [
     {
       name: 'Crate Space',
-      role: 'CTO',
-      url: 'https://cratespace.com',
-      range: [
-        moment('20161001', 'YYYYMMDD').toDate(),
-        moment().toDate()
+      url: 'https://www.cratespace.com',
+      desc: 'Save on name-brand household products by building your own bundle',
+      roles: [
+        'design',
+        'development',
+        'logistics'
       ],
-      location: 'NYC',
-      desc: 'Build your own bundle of household essentials for one low price.',
       technology: [
-        'vuejs',
-        'graphql',
         'ruby',
-        'nodejs'
+        'vuejs',
+        'graphql'
       ]
     },
     {
-      name: 'Sea/Salt Ventures',
-      role: 'Partner',
-      url: 'https://seasalt.io',
-      range: [
-        moment('20130301', 'YYYYMMDD').toDate(),
-        moment().toDate()
-      ],
-      location: 'NYC',
-      desc: 'The technology team that can do anything. We help strong operators get new companies off the ground.',
-      technology: [
-        'ux-design',
-        'golang',
-        'vuejs',
-        'ios',
-        'ruby',
-        'ember',
-        'dev-ops'
-      ],
-      industries: [
-        'health care',
-        'finance',
-        'e-commerce',
-        'social media',
-        'travel'
+      name: 'Google OnHub + IFTTT',
+      url: 'http://youtu.be/JPH74ZHDuCI',
+      desc: 'Partnered with Google to showcase their OnHub/IFTTT integration',
+      roles: [
+        'hacking',
+        'acting!'
       ]
-    },
-    {
-      name: 'Freeassociation',
-      role: 'Technology Director',
-      url: 'http://freeassociation.is',
-      range: [
-        moment('20100501', 'YYYYMMDD').toDate(),
-        moment('20131201', 'YYYYMMDD').toDate()
-      ],
-      location: 'Brooklyn',
-      desc: 'A+ design and development studio',
-      technology: [
-        'ux-design',
-        'ios',
-        'ruby',
-        'dev-ops'
-      ],
-      industries: [
-        'advertising',
-        'non-profit',
-        'events'
-      ]
-    }
-  ],
-  education: [
-    {
-      name: 'Ithaca College',
-      range: [
-        moment('20050801', 'YYYYMMDD').toDate(),
-        moment('20090501', 'YYYYMMDD').toDate()
-      ],
-      degree: {
-        type: 'bachelors',
-        focus: 'Speech Communication'
-      }
-    }
-  ],
-  random: [
-    {
-      id: 'http://youtu.be/JPH74ZHDuCI',
-      desc: 'Partnered with Google to showcase their OnHub/IFTTT integration'
     }
   ]
 }
