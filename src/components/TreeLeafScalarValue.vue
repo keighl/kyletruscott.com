@@ -15,7 +15,10 @@ import isUrl from 'is-url'
 
 export default {
   props: [
-    'value'
+    'value',
+    {
+      ok: true
+    }
   ],
 
   computed: {
@@ -55,7 +58,7 @@ export default {
       }
 
       if (_.isString(this.value)) {
-        return `"${this.value}"`
+        return `'${this.value}'`
       }
 
       return this.value
@@ -66,20 +69,21 @@ export default {
 
 <style lang="sass" rel="stylesheet/sass">
 .tree-leaf-scalar-value
-  color: #0B7500
+  color: #C077F4
 
 a.tree-leaf-scalar-value
-  color: #1A01CC
-  text-decoration: underline
+  color: #E51584
+  text-decoration: none
   font-weight: bold
 
 .tree-leaf-scalar-value-number,
 .tree-leaf-scalar-value-boolean,
 .tree-leaf-scalar-value-date,
 .tree-leaf-scalar-value-null
-  color: #1A01CC
+  color: #809600
   font-weight: bold
 
 .tree-leaf-scalar-value-string
-  color: #0B7500
+  color: #00A498
+
 </style>

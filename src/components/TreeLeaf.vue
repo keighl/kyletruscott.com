@@ -7,10 +7,10 @@
         @click="toggle"></span>
     </div>
     <div class="tree-leaf-content">
-      <span class="tree-view-leaf-key" v-show="showKey">"{{nodeKey}}"<span class="tree-view-leaf-key-token">:</span></span>
+      <span class="tree-view-leaf-key" v-show="showKey">{{nodeKey}}<span class="tree-view-leaf-key-token">:</span></span>
       <tree-leaf-scalar-value :value="value" v-if="isScalar"></tree-leaf-scalar-value>
       <span v-if="isObject" v-show="open">
-        <strong>{</strong>
+        <strong class="tree-leaf-boundary">{</strong>
           <div class="tree-leaf-object-block">
             <tree-leaf
               v-for="(v, k) in value"
@@ -19,13 +19,13 @@
               :value="v">
             </tree-leaf>
           </div>
-        <strong>}</strong>
+        <strong class="tree-leaf-boundary">}</strong>
       </span>
       <span v-if="isObject && !open" @click="toggle">
-        <strong>{</strong> &hellip; <strong>}</strong>
+        <strong class="tree-leaf-boundary">{</strong> &hellip; <strong class="tree-leaf-boundary">}</strong>
       </span>
       <span v-if="isArray" v-show="open">
-        <strong>[</strong>
+        <strong class="tree-leaf-boundary">[</strong>
           <div class="tree-leaf-object-block">
             <tree-leaf
               v-for="(v, k) in value"
@@ -34,10 +34,10 @@
               :value="v">
             </tree-leaf>
           </div>
-        <strong>]</strong>
+        <strong class="tree-leaf-boundary">]</strong>
       </span>
       <span v-if="isArray && !open" @click="toggle">
-        <strong>[</strong> &hellip; <strong>]</strong>
+        <strong class="tree-leaf-boundary">[</strong> &hellip; <strong class="tree-leaf-boundary">]</strong>
       </span>
       <span class="tree-leaf-sep">,</span>
       <span
@@ -152,7 +152,7 @@ export default {
     height: 0
     border-style: solid
     border-width: 8px 4px 0 4px
-    border-color: #CCC transparent transparent transparent
+    border-color: #4A7075 transparent transparent transparent
   &.closed::after
     transform: rotate(-90deg)
 
@@ -172,9 +172,8 @@ export default {
 
 .tree-view-leaf-key-token
 
-
 .tree-leaf-object-block
-  border-left: 1px dotted #BBB
+  border-left: 1px dotted rgba(#4A7075, 0.5)
   margin-left: 2px
 
 .tree-leaf-sep
@@ -182,8 +181,12 @@ export default {
 .tree-leaf:last-child > .tree-leaf-content > .tree-leaf-sep
   display: none
 
+.tree-leaf-boundary
+  color: #008BD8
+
+
 .tree-view-comment
-  color: #aaa
+  color: #4A7075
   &::before
     content: "// "
   &::after

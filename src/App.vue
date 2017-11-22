@@ -29,11 +29,11 @@ export default {
 @import "style/normalize.css"
 
 body
-  background-color: #f7f7f7
+  background-color: #002C37
 
 .tree-wrapper
   margin: 0 auto
-  max-width: 800px
+  max-width: 900px
 
   +tablet
     padding: 2em
