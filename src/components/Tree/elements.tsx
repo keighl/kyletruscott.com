@@ -11,8 +11,6 @@ export const Gutter = styled.span`
 
 export const Key = styled.span<{ depth: number }>`
 	color: ${(props) => {
-		console.log(props.depth)
-
 		if (props.depth < 2) {
 			return props.theme.tree.keyRoot
 		}
