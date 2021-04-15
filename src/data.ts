@@ -10,7 +10,6 @@ const data: Record<string, any> = {
 		company: 'https://freeassociation.is',
 		role: 'Engineering Director',
 	},
-	contact: 'me@keighl.com',
 	github: 'https://github.com/keighl',
 	location: [41.142458, -73.233067],
 	specialties: {
