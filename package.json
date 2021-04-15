@@ -21,6 +21,7 @@
 		"emotion-rgba": "^0.0.9",
 		"gatsby": "^3.1.2",
 		"gatsby-plugin-emotion": "^6.2.0",
+		"gatsby-plugin-google-gtag": "^3.3.0",
 		"node-sass": "^5.0.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1"
