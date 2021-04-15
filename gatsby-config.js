@@ -12,5 +12,16 @@ module.exports = {
 				exclude: [],
 			},
 		},
+		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `kyletruscott`,
+				short_name: `kyletruscott`,
+				start_url: `/`,
+				display: `minimal-ui`,
+				icon: `src/images/favicon.png`,
+			},
+		},
 	],
 }
