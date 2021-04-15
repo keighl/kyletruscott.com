@@ -1,8 +1,6 @@
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 [build]
-	base = ""
-
 	publish = "public/"
 	command = "yarn build"
 
@@ -11,8 +9,10 @@
 	from = "https://keighl.com/*"
 	to = "https://www.kyletruscott.com/:splat"
 	status = 301
+    force = true
 
 [[redirects]]
 	from = "https://www.keighl.com/*"
 	to = "https://www.kyletruscott.com/:splat"
 	status = 301
+    force = true
