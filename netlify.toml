@@ -1,0 +1,18 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+[build]
+	base = ""
+
+	publish = "public/"
+	command = "yarn build"
+
+
+[[redirects]]
+	from = "https://keighl.com/*"
+	to = "https://www.kyletruscott.com/:splat"
+	status = 301
+
+[[redirects]]
+	from = "https://www.keighl.com/*"
+	to = "https://www.kyletruscott.com/:splat"
+	status = 301
