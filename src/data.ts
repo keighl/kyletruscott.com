@@ -1,23 +1,19 @@
 const data: Record<string, any> = {
-	id: 'keighl',
-	name: {
-		first_name: 'Kyle',
-		last_name: 'Truscott',
-	},
+	name: 'Kyle Truscott',
 	desc:
-		'Full-stack software leader with a specialty in bridging complex gaps between technology and user-experience design.',
+		'Full-stack software and design leader with a specialty in bridging complex gaps between technology and user-experience.',
 	current: {
 		company: 'https://freeassociation.is',
-		role: 'Engineering Director',
+		role: 'Senior Engineering Director',
 	},
 	github: 'https://github.com/keighl',
-	location: [41.142458, -73.233067],
+	location: ['CT, USA', [41.142458, -73.233067]],
 	specialties: {
 		engineering: [
 			'design-systems',
 			'design-tools',
-			'single-page-apps',
-			'apis',
+			'application-development',
+			'APIs',
 			'build-tooling',
 			'automation',
 		],
@@ -35,6 +31,34 @@ const data: Record<string, any> = {
 	],
 
 	recent_work: [
+		{
+			name: 'Selective Surgery',
+			type: 'Figma Plugin',
+			url: 'https://www.figma.com/community/plugin/1023301829529134737',
+			desc: [
+				'Designed and engineered a specicalized Figma plugin for smart batch selection of deeply nested layers',
+				'Leveraged the plugin to promote design software and tooling at Free Association',
+			],
+			tech: ['typescript', 'figma-apis'],
+		},
+		{
+			customer: ['Tiyaro', 'https://www.tiyaro.ai/'],
+			project: {
+				role: 'Design Director',
+				duration: 'Winter 2021',
+				desc: [
+					'Designed Tiyaro’s MVP web application for self-service AI integration',
+					'Defined experience principles for the company’s initial offering, and honed strategic product approach',
+					'Crafted Tiaryo’s visual brand',
+					'Guided internal AI team on web service architecture and developer experience',
+					'Orchestrated user-testing with potential customers',
+				],
+				attrs: {
+					design: true,
+					leadership: true,
+				},
+			},
+		},
 		{
 			customer: ['Unqork', 'https://www.unqork.com/'],
 			projects: [

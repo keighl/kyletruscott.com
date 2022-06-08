@@ -2,6 +2,7 @@
 import { jsx, ThemeProvider } from '@emotion/react'
 import { FunctionComponent } from 'react'
 import { PageProps } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import { media, themes } from '../style'
 import data from '../data'
@@ -13,6 +14,12 @@ type Props = PageProps & {}
 const HomePage: FunctionComponent<Props> = ({}) => {
 	return (
 		<ThemeProvider theme={themes.dark}>
+			<Helmet>
+				<title>Kyle Truscott - Developer/Designer</title>
+				<html lang="en" />
+				<meta name="description" content={data.desc} />
+				<meta property="og:description" content={data.desc} />
+			</Helmet>
 			<div
 				css={{
 					padding: '1.5rem',
