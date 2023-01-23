@@ -3,22 +3,22 @@ const data: Record<string, any> = {
 	desc:
 		'Full-stack software and design leader with a specialty in bridging complex gaps between technology and user-experience.',
 	current: {
-		company: 'https://freeassociation.is',
 		role: 'Senior Engineering Director',
+		company: 'https://freeassociation.com',
 	},
 	github: 'https://github.com/keighl',
-	location: ['CT, USA', [41.142458, -73.233067]],
-	specialties: {
+	location: 'Fairfield, CT, USA',
+	attributes: {
+		leadership: ['design-direction', 'tech-direction', 'product-strategy'],
 		engineering: [
-			'design-systems',
 			'design-tools',
-			'application-development',
-			'APIs',
+			'web-development',
+			'app-development',
+			'backend-systems',
 			'build-tooling',
 			'automation',
 		],
 		design: ['ux-design', 'prototyping', 'research', 'workshops'],
-		leadership: ['tech-direction', 'product-strategy'],
 	},
 	technology: [
 		'node',
@@ -31,6 +31,45 @@ const data: Record<string, any> = {
 	],
 
 	recent_work: [
+		{
+			customer: 'Toyota',
+			project: {
+				name: 'Woven City Gate Kiosk',
+				role: 'Design Director',
+				duration: 'Fall 2022',
+				desc: [
+					'Led hands-on team of 3 designers to create comprehensive entryway experience for Woven City',
+					'Directed the team to high creative output and divergent concepts',
+					'Influenced the UX direction for other systems and applications within the city',
+					'Collaborated with Toyota engineering to align on vision for how “Woven ID” data and systems will operate',
+				],
+			},
+		},
+		{
+			customer: 'Credit Karma',
+			project: {
+				name: 'UI Library & Figma Plugin',
+				role: 'Design Lead / Engineer',
+				duration: 'Summer 2022',
+				desc: [
+					'Constructed new internal data visualization UI library to empower product innovation within Credit Karma',
+					'Led team towards a designer experience that emphasizes composability and creativity',
+					'Design and engineered custom internal Figma plugin to assist and educate CK designers while using the new library',
+				],
+				tech: ['typescript', 'figma-apis'],
+				url: 'https://www.freeassociation.com/work/credit-karma',
+			},
+		},
+		{
+			name: 'Sticky Loops',
+			type: 'Figma Plugin',
+			url:
+				'https://www.figma.com/community/plugin/1111690296935263941/Sticky-Loops',
+			desc: [
+				'A creative audio plugin which interprets Figjam sticky notes into drum machine loops',
+			],
+			tech: ['typescript', 'figma-apis', 'audiocontext', 'tonejs'],
+		},
 		{
 			name: 'Selective Surgery',
 			type: 'Figma Plugin',
