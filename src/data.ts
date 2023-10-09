@@ -1,10 +1,12 @@
 const data: Record<string, any> = {
 	name: 'Kyle Truscott',
+	openToWork: true,
 	desc:
 		'Full-stack software and design leader with a specialty in bridging complex gaps between technology and user-experience.',
-	current: {
+	latestRole: {
 		role: 'Senior Engineering Director',
 		company: 'https://freeassociation.com',
+		range: [2018, 2023]
 	},
 	github: 'https://github.com/keighl',
 	location: 'Fairfield, CT, USA',
@@ -31,6 +33,32 @@ const data: Record<string, any> = {
 	],
 
 	recent_work: [
+		{
+			customer: 'Coinbase',
+			project: {
+				name: 'Coinbase Design System',
+				role: 'Design Director',
+				duration: 'Summer/Fall 2023',
+				desc: [
+					'Worked alongside Coinbase designers to improve internal Figma component systems',
+					'Guided junior designers across multiple workstreams',
+					'Generated UX concepts for internationalized onboarding flows',
+				],
+			},
+		},
+		{
+			customer: 'Unqork',
+			project: {
+				name: 'Wealth Management Platform',
+				role: 'Design Director',
+				duration: 'Spring 2023',
+				desc: [
+					'Designed a white-label application for wealth custodians to onboard and service banking customers.',
+					'Interfaced with internal and external stakeholders to align on strategic vision',
+					'Led divergent design rounds to establish scalable UX principles',
+				],
+			},
+		},
 		{
 			customer: 'Toyota',
 			project: {
